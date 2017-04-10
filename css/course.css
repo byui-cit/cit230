@@ -1,0 +1,524 @@
+/********************************************************
+		The purpose of course.css is to house only the css
+		specific to an individual course. The online.css
+		houses all the default template formatting.
+********************************************************/
+
+
+/* DO NOT DELETE OR MODIFY THIS IMPORT */
+
+@import url("https://content.byui.edu/integ/gen/599082e0-3e89-4fd9-ac69-2615865d63c7/0/online.css");
+
+/* Add Course Specific css Below */
+
+html {
+	background: -webkit-radial-gradient(ellipse, #b3c186 0%, #616c3c 100%) fixed;
+	background: radial-gradient(ellipse, #b3c186 0%, #616c3c 100%) fixed;
+}
+
+h1 {
+	color: #384845;
+}
+
+h2 {
+	color: #0a7468;
+}
+
+h3 {
+	color: #ba582c;
+}
+
+h4 {
+	color: #0a7468;
+}
+
+h5 {
+	color: #ba582c;
+}
+
+a {
+	color: #af5329;
+	border-bottom: 2px solid #af5329;
+}
+
+a:hover {
+	color: #7b4c8d;
+	border-bottom: 2px solid #7b4c8d;
+}
+
+a:visited {
+	color: #7b4c8d;
+	border-bottom: 2px solid #7b4c8d;
+}
+
+#footer {
+	color: #ffffff;
+	background-color: #3c7f77;
+}
+
+#footer a:link,
+#footer a:visited {
+	color: hsl(58, 100%, 56%);
+	text-decoration: none;
+	border-bottom: none !important;
+}
+
+
+/********************************************
+		SPLASH PAGE STYLING
+*********************************************/
+
+.splash #article {
+	color: #f5f5f5;
+	background-color: #24655e;
+}
+
+.splash h1 {
+	color: #fafafa;
+}
+
+.splash h2 {
+	color: #94f3f5;
+}
+
+.splash h3 {
+	color: #f6cf8a;
+}
+
+.splash h4 {
+	color: #94f3f5;
+}
+
+.splash h5 {
+	color: #f6cf8a;
+}
+
+.splash a {
+	color: #f6cf8a;
+	border-bottom: 2px solid #f6cf8a;
+}
+
+.splash table a,
+.splash .callout a {
+	color: #af5329;
+	border-bottom: 2px solid #af5329;
+}
+
+.splash a:hover {
+	color: #e5cbf0;
+	border-bottom: 2px solid #e5cbf0;
+}
+
+.splash table a:hover,
+.splash .callout a:hover {
+	color: #7b4c8d;
+	border-bottom: 2px solid #7b4c8d;
+}
+
+.splash a:visited {
+	color: #e5cbf0;
+	border-bottom: 2px solid #e5cbf0;
+}
+
+.splash table a:visited,
+.splash .callout a:visited {
+	color: #7b4c8d;
+	border-bottom: 2px solid #7b4c8d;
+}
+
+.splash #footer {
+	color: #f5f5f5;
+	background-color: #1c4e49;
+}
+
+
+/********************************************
+		FEATURES STYLING
+*********************************************/
+
+
+/* Callout box */
+
+.callout {
+	color: #495321;
+	background: #e1e6cd;
+}
+
+
+/* Drop downs */
+
+.drop-down {
+	background: #24655e;
+}
+
+.drop-down:hover {
+	background: #29746c;
+}
+
+
+/* Rubric table */
+
+
+/* Column headings */
+
+.rubric tr:first-child th {
+	background-color: #24655e;
+}
+
+
+/* Row headings */
+
+.rubric th {
+	color: #333;
+	background-color: #b8cd6f;
+}
+
+
+/* Mouseover popups */
+
+#main .popup {
+	border-bottom: dotted 2px #24655e;
+}
+
+#main .popup span {
+	background: #24655e;
+}
+
+#main .popup:after {
+	border-color: #24655e transparent transparent transparent;
+}
+
+
+/***********************************************************
+		ACTIVTY BANNERS
+***********************************************************/
+
+h1.activity,
+h2.activity {
+	position: relative;
+	margin: 20px 0;
+	padding: 10px 0 10px 200px;
+	color: #000;
+	font-size: 32px;
+	background: #d69595;
+}
+
+h1.prepare,
+h2.prepare {
+	background: #8ed0cb;
+}
+
+h1.teach,
+h2.teach {
+	background: #9abad6;
+}
+
+h1.ponder,
+h2.ponder {
+	background: #baa4d4;
+}
+
+
+/****** TOA Pseudo Text ******/
+
+h1.activity:before,
+h2.activity:before {
+	content: "ACTIVITY";
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: inline-block;
+	box-sizing: border-box;
+	padding-top: 22px;
+	padding-right: 25px;
+	width: 140px;
+	height: 100%;
+	font-size: 14px;
+	color: #fff;
+	font-family: 'Open Sans';
+	text-align: center;
+	background: #9f5454;
+}
+
+h1.prepare:before,
+h2.prepare:before {
+	content: "PREPARE";
+	background: #49807b;
+}
+
+h1.teach:before,
+h2.teach:before {
+	content: "TEACH ONE ANOTHER";
+	padding-top: 13px;
+	background: #537491;
+}
+
+h1.ponder:before,
+h2.ponder:before {
+	content: "PONDER \0026  PROVE";
+	padding-top: 13px;
+	background: #8163a5;
+}
+
+
+/****** TOA Pseduo Icon ******/
+
+h1.activity:after,
+h2.activity:after {
+	content: "";
+	position: absolute;
+	top: -6px;
+	left: 110px;
+	display: inline-block;
+	width: 75px;
+	height: 75px;
+	background-size: cover;
+}
+
+
+/***********************************************************
+		PREPARE ICONS
+***********************************************************/
+
+h1.readings:after,
+h2.readings:after {
+	background-image: url(icons/reading.png);
+}
+
+h1.video:after,
+h2.video:after {
+	background-image: url(icons/video.png);
+}
+
+h1.preAssessment:after,
+h2.preAssessment:after {
+	background-image: url(icons/preAssessment.png);
+}
+
+h1.checkUnderstanding:after,
+h2.checkUnderstanding:after {
+	background-image: url(icons/checkUnderstanding.png);
+}
+
+h1.caseStudy:after,
+h2.caseStudy:after {
+	background-image: url(icons/caseStudy.png);
+}
+
+
+/***********************************************************
+		TEACH ONE ANOTHER ICONS
+***********************************************************/
+
+h1.iceBreaker:after,
+h2.iceBreaker:after {
+	background-image: url(icons/iceBreaker.png);
+}
+
+h1.insightSharing:after,
+h2.insightSharing:after {
+	background-image: url(icons/insight.png);
+}
+
+h1.peerAccountability:after,
+h2.peerAccountability:after {
+	background-image: url(icons/peerAccountability.png);
+}
+
+h1.supportForum:after,
+h2.supportForum:after {
+	background-image: url(icons/supportForum.png);
+}
+
+h1.topicDiscussion:after,
+h2.topicDiscussion:after {
+	background-image: url(icons/topicDiscussion.png);
+}
+
+h1.studyGroup:after,
+h2.studyGroup:after {
+	background-image: url(icons/studyGroup.png);
+}
+
+h1.groupProblemSolving:after,
+h2.groupProblemSolving:after {
+	background-image: url(icons/groupProblemSolving.png);
+}
+
+h1.groupPresentation:after,
+h2.groupPresentation:after {
+	background-image: url(icons/groupPresentation.png);
+}
+
+h1.jigsawActivity:after,
+h2.jigsawActivity:after {
+	background-image: url(icons/jigsawActivity.png);
+}
+
+h1.rolePlayDiscussion:after,
+h2.rolePlayDiscussion:after {
+	background-image: url(icons/rolePlayDiscussion.png);
+}
+
+h1.structuredDebate:after,
+h2.structuredDebate:after {
+	background-image: url(icons/structuredDebate.png);
+}
+
+h1.peerFeedback:after,
+h2.peerFeedback:after {
+	background-image: url(icons/peerFeedback.png);
+}
+
+h1.fieldExperience:after,
+h2.fieldExperience:after {
+	background-image: url(icons/fieldExperience.png);
+}
+
+h1.groupProject:after,
+h2.groupProject:after {
+	background-image: url(icons/groupProject.png);
+}
+
+
+/***********************************************************
+		PONDER AND PROVE ICONS
+***********************************************************/
+
+h1.reflection:after,
+h2.reflection:after {
+	background-image: url(icons/reflection.png);
+}
+
+h1.assessment:after,
+h2.assessment:after {
+	background-image: url(icons/assessment.png);
+}
+
+h1.practiceApply:after,
+h2.practiceApply:after {
+	background-image: url(icons/practiceApply.png);
+}
+
+h1.demonstrateProficiency:after,
+h2.demonstrateProficiency:after {
+	background-image: url(icons/demonstrateProficiency.png);
+}
+
+h1.presentation:after,
+h2.presentation:after {
+	background-image: url(icons/presentation.png);
+}
+
+
+/* Other Icon */
+
+h1.other:after,
+h2.other:after {
+	background-image: url(icons/other.png);
+}
+
+@media only screen and (max-width: 700px) {
+	/*    TOA Banner */
+	h1.activity,
+	h2.activity {
+		padding: 10px 0 10px 110px;
+	}
+	/*    TOA Pseduo Text*/
+	h1.activity:before,
+	h2.activity:before {
+		content: "";
+		padding-right: 0px;
+		width: 20px;
+	}
+	/*    TOA Pseduo Icons */
+	h1.activity:after,
+	h2.activity:after {
+		left: 25px;
+	}
+}
+
+@media only screen and (max-width: 500px) {
+	/*    TOA Banner */
+	h1.activity,
+	h2.activity {
+		padding: 10px 0 10px 95px;
+		font-size: 24px;
+	}
+	/*    TOA Pseduo Text */
+	h1.activity:before,
+	h2.activity:before {
+		padding-right: 0px;
+		width: 15px;
+	}
+	/*    TOA Pseduo Icons */
+	h1.activity:after,
+	h2.activity:after {
+		left: 20px;
+		width: 65px;
+		height: 65px;
+	}
+}
+
+.rulestyle {
+	width: 100%;
+	height: 3px;
+	color: #ffffff;
+	border: 1px inset #cccccc;
+}
+
+.faq dl dd {
+	padding-left: 1em;
+	margin-bottom: .5em;
+}
+
+#gradetable {
+	width: 60%;
+}
+
+#gradetable th {
+	font-weight: bold;
+	text-align: center;
+}
+
+/*For use with codepen prism code*/
+pre.line-numbers {
+	position: relative;
+	padding-left: 3.8em;
+	counter-reset: linenumber;
+}
+
+pre.line-numbers > code {
+	position: relative;
+}
+
+.line-numbers .line-numbers-rows {
+	position: absolute;
+	pointer-events: none;
+	top: 0;
+	font-size: 100%;
+	left: -3.8em;
+	width: 3em; /* works for line-numbers below 1000 lines */
+	letter-spacing: -1px;
+	border-right: 1px solid #999;
+
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+
+}
+
+	.line-numbers-rows > span {
+		pointer-events: none;
+		display: block;
+		counter-increment: linenumber;
+	}
+
+		.line-numbers-rows > span:before {
+			content: counter(linenumber);
+			color: #999;
+			display: block;
+			padding-right: 0.8em;
+			text-align: right;
+		}
