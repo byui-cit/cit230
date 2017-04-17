@@ -19,14 +19,14 @@
 				<h1>Getting started - Franklin</h1>
 				<hr class="rulestyle">
                 <h2>Overview</h2>
-                <p>Last week we were introduced to the Planning Document for our weather site and we gained some experince working with HTML.  We also had a chance to practice converting wireframes into HTML.  Now we are ready to begin building our weather site by creating the Franklin page by following the wireframe in the planning document.</p>
+                <p>Last week we were introduced to the Planning Document for our weather site and we gained some experience working with HTML.  We also had a chance to practice converting wireframes into HTML.  Now we are ready to begin building our weather site by creating the Franklin page by following the wireframe in the planning document.</p>
                 <div class="callout">
                     <h3>Which Wireframe?</h3>
                     <p>As we are getting ready to start you may be wondering which of the two wireframes should we follow?  The answer is both!  Since we are concentrating on getting the content off of the wireframe and into HTML we need to make sure we get <em>all</em> of the content.  Some content will be hidden on either the large or small screen, so if we just look at one or the other we might miss something.</p>
                 </div>
                 <h2>Tasks</h2>
                 <ol>
-                    <li>Review the <a href="../images/wireframe-small.png" target="_blank">small</a> and <a href="../images/wireframe-lg.png" target="_blank">large</a> wireframes to get an idea of what we need to do.  Keep them handy as we will be referring back them often.</li>
+                    <li>Review the <a href="../images/planning/wireframe-sm.png" target="_blank">small</a> and <a href="../images/planning/wireframe-lg.png" target="_blank">large</a> wireframes to get an idea of what we need to do.  Keep them handy as we will be referring back them often.</li>
                     <li>Create a new html document in your editor and save it in the weather folder with a name that keeps in mind the <a href="https://blainerobertson.github.io/230d2l/resources/naming.html" target="_blank">naming rules</a> we talked about earlier for the Franklin page of our site.</li>
                     <li><p>Start your page by adding all of the critical parts of a valid HTML5 webpage: doctype, html, head, metas, title, body, etc.  Or you can use the code below as a starting point.</p>
                     <pre><code class="html">
@@ -69,7 +69,7 @@
                         
                         <div class="callout">
                             <p>You may be saying to yourself at this point "this sounds very familiar..." and you would be right.  The last few steps are exactly what we did last week when creating the HTML version of the planning document.  This is not an accident, turns out that there is a certain amount of repetition in web development.  The core of an HTML document is really very similar from site to site.</p>
-                            <p>Many developers because of this will create what is know as 'boilerplate' code.  It is a simple version of an HTML project that has all of the parts that are almost always used.  There is even an addon in Brackets that will provide you with these templates.  The boilerplate that I tend to use looks like this:</p>
+                            <p>Because of this many developers will create what is know as 'boilerplate' code.  It is a simple version of an HTML project that has all of the parts that are almost always used.  There is even an addon in Brackets that will provide you with these templates.  The boilerplate that I tend to use looks like this:</p>
                             <pre><code class="html">
 &lt;!doctype html&gt;
 &lt;html lang="en-us"&gt;
@@ -97,14 +97,14 @@
     &lt;/body&gt;
 &lt;/html&gt;  
                     </code></pre>
-                       <p>Most of that should look familiar.  There are two lines we have not discussed yet in the <code>head</code>.  One of those is the <code>link</code> element.  We will learn about that next week.  Feel free to use my boilerplate, or come up with your own with the things that you find you always want in an HTML page.</p>
+                       <p>Most of that should look familiar.  There are two lines we have not discussed yet in the <code>head</code>.  The <code>link</code> element and the viewport <code>meta</code>.  We will learn about those next week.  Feel free to use my boilerplate, or come up with your own with the things that you find you always want in an HTML page.</p>
                         </div>
                     </li>
                     <li>
                         <p>From here we are ready to continue adding content areas.  Everything else should go in the <code>header</code>, <code>main</code>, or <code>footer</code> elements we added. As you add content pay attention to what type of information it is and try to use the appropriate HTML element.</p>
                         <p>Make sure to refer often to the wireframes to make sure you don't miss anything. </p>
                         <div class="callout">
-                            <p>I would recommend starting with outlining content areas...start general and work towards specifics. For example if we look at the <a href="../images/wireframe-lg.png" target="_blank">large</a> wireframe you will notice that we have a good start on content areas.  But if we look specifically at the main content we need to carve out more defined spaces for things.  We need 3 containers in fact...one for current conditions, or for the location and temperature, and one for hourly information. You may want to refer to the <a href="https://blainerobertson.github.io/230d2l/resources/sectioning_flowchart.html" target="_blank">sectioning flowchart</a> to help you decide which elements you should use to define those areas.</p>
+                            <p>I would recommend starting with outlining content areas...start general and work towards specifics. For example if we look at the <a href="../images/planning/wireframe-lg.png" target="_blank">large</a> wireframe you will notice that we have a good start on content areas.  But if we look specifically at the main content we need to carve out more defined spaces for things.  We need 3 containers in fact...one for current conditions, or for the location and temperature, and one for hourly information. You may want to refer to the <a href="https://blainerobertson.github.io/230d2l/resources/sectioning_flowchart.html" target="_blank">sectioning flowchart</a> to help you decide which elements you should use to define those areas.</p>
                             <p>After you define those 3 areas, look specifically at the center box.  It seems to be divided into a couple of areas...one for the location, and then another for the temp and high and low.  Add another element to contain those bits of content.</p>
                         </div>
                         
