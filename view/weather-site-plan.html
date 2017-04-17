@@ -48,13 +48,13 @@
                         <p>The description should do just what it says...describe what the site...and particularly this page are about.</p>
                     </li>
                     <li>
-                        <p>Now we are ready to start adding our content.  but first we need to create spaces in our HTML for that content to go. HTML is considered a <a href="https://blainerobertson.github.io/230d2l/resources/semantics.html" target="_blank">Semantic</a> language.  Basically the html markup use should <em>describe</em> the content it contains whenever possible.</p>
+                        <p>Now we are ready to start laying the foundation for our content.  This involves creating spaces in our HTML for that content to go. HTML is considered a <a href="https://blainerobertson.github.io/230d2l/resources/semantics.html" target="_blank">Semantic</a> language.  Basically, the html markup used should <em>describe</em> the content it contains whenever possible.</p>
                         <p>Lets add a few semantic elements to get us started.  Most documents have the same underlying parts.  Most of us learned those when learning to write our first 5 paragraph essay. They are: header, main body, and footer.</p>
                         <p>HTML5 provided us with elements to represent those parts.  Lets add the following to our html. this should go in the body, replacing the h1 that is currently there (remember that the <code>body</code> contains all the stuff we want to be in the browser window).</p>
                         <pre><code class="html">
     &lt;header&gt;
         &lt;h1&gt;Mobile Weather App Site Plan&lt;/h1&gt;
-        &lt;nav&gt;&lt;a href=""&gt;Home&lt;/a&gt; &lt;/nav&gt;
+        &lt;nav&gt;&lt;a href="#"&gt;Home&lt;/a&gt; &lt;/nav&gt;
     &lt;/header&gt;
     &lt;main&gt;
 
@@ -64,7 +64,7 @@
     &lt;/footer&gt;
                         </code></pre>
                         
-                        <p>Notice I went ahead and added a <code>nav</code> element.  That wasn't part of the essay we learned to write...but navigation is a pretty important part of the web.  The <code>header</code> is often where it goes.</p>
+                        <p>Notice I went ahead and added a <code>nav</code> element.  That wasn't part of the essay we learned to write...but navigation is a pretty important part of the web.  The <code>header</code> is often where it goes. The "#" in the href attribute of that anchor is basically a shortcut to have the page link to itself.  Once we have a Home for our weather site we should update that.</p>
                         <p class="callout">You might have also noticed the <code>footer</code>.  There is a funny code there.  It is called an <a href="https://www.w3schools.com/html/html_entities.asp" target="_blank">html entity code</a> and can be recognized by the leading &amp;.  We use them to display special characters that could not normally be displayed. When you put that into your HTML it will get converted into a &copy;</p>
                     </li>
                     <li>
@@ -77,8 +77,8 @@
                     <li>
                         Add the remainder of the content in the document to your HTML.  Use the semantic element that best describes the content.  You should use <a href="https://www.w3schools.com/html/html_links.asp" target="_blank">links</a>, <a href="https://www.w3schools.com/html/html_images.asp" target="_blank">images</a>, <a href="https://www.w3schools.com/html/html_lists.asp" target="_blank">lists</a>,  probably a simple <a href="https://www.w3schools.com/html/html_tables.asp" target="_blank">table</a> for the colors, and lots of <a href="https://www.w3schools.com/html/html_paragraphs.asp" target="_blank">paragraphs</a> and <a href="https://www.w3schools.com/html/html_headings.asp" target="_blank">headlines</a>.
                     </li>
-                    <li>Validate your page.  The easiest way to do this would be to use the Developer tools you installed in the first week.  You should see a little gear icon on the top right side of your browser if they are installed. Click on the gear, then Tools and if you are working locally (URL looks like: 127.0.0.1) then pick the "Validate Local HTML" option.  If you have already uploaded your html to Github and want to validate there (URL looks like username.github.io) then pick the Validate HTML option.  Fix all errors.</li>
-                    <li>Make sure to add a link to your temporary homepage to this new page.  Then make sure to commit and sync your work in Github Desktop.  Check your URL (should look like githubusername.github.io) to make sure all of your changes show, and to check that your images all work. then post your url to Ilearn.</li>
+                    <li>Validate your page.  The easiest way to do this would be to use the Developer tools you installed in the first week.  You should see a little gear icon on the top right side of your browser if they are installed. Click on the gear, then Tools and if you are working locally (URL looks like: 127.0.0.1) then pick the "Validate Local HTML" option.  If you have already uploaded your html to Github and want to validate there (URL looks like username.github.io) then pick the Validate HTML option.  Fix <strong>all</strong> errors.</li>
+                    <li>Make sure to add a link to your temporary homepage to this new page.  Then make sure to commit <strong>and</strong> sync your work in Github Desktop.  Check your URL (should look like githubusername.github.io) to make sure all of your changes show, and to check that your images all work.</li>
                 </ol>
 				 <h2>Grading Matrix</h2>
         <p>This assessment will be graded for two objectives: 1 and 6.</p>
