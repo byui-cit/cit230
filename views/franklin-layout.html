@@ -1,0 +1,257 @@
+<!doctype html>
+
+<html lang="en-us"><head>
+	<meta charset="UTF-8">
+	<title>Franklin Layout | Web Frontend Development</title>
+	<meta name="description" content="Activity to create the HTML for the Franklin weather page for CIT 230">
+	<meta name="viewport" content="width=device-width">
+	<link rel="stylesheet" href="../css/solarized-light.css" />	
+	<link rel="stylesheet" href="../css/course.css">
+</head>
+
+<body class="faq">
+	<div id="main">
+		<header id="header">
+			<img src="../images/smallbanner.jpg" alt="CIT 230 Course Banner">
+		</header>
+		<main>
+			<article id="article">
+				<h1>Franklin - Layout</h1>
+				<hr class="rulestyle">
+                <h2>Overview</h2>
+                <p>Last week we started build our weather site by writing the HTML for the first page...Franklin.  You may have noticed that while we followed the wireframe closely to make sure we got all of the content onto the page, the final product didn't <em>look</em> very much like the wireframe.  We are going to fix that this week with CSS.</p>
+                <div class="callout">
+                    <h3>Adding CSS</h3>
+                    <p>From the readings hopefully you recall that there are 3 ways to add CSS to HTML. </p>
+                    <ol>
+                        <li>Inline</li>
+                        <li>Internal Stylesheets</li>
+                        <li>External Stylesheets</li>
+                    </ol>
+                    <p>Inline should only be used for troubleshooting and other very specific circumstances.  Internal stylesheets and external stylesheets are actually very similar, but external are superior in one very important way:  they are much more reusable...the same stylesheet can be attached to <em>all</em> the pages of a site.</p>
+                    <p>We will be using external stylesheets exclusively for this course.</p>
+                </div>
+                <h2>Tasks</h2>
+                <ol>
+                    <li>Review the <a href="../images/planning/wireframe-sm.png" target="_blank">small</a> wireframe to remind yourself of how it should look...where the different elements are in relation to each other. Keep it handy as we will be referring back to it often.</li>
+                    <li>Create a new file in your editor and save it in the weather folder with a name that keeps in mind the <a href="https://blainerobertson.github.io/230d2l/resources/naming.html" target="_blank">naming rules</a> we talked about earlier. This new file will <strong>not</strong> end with <code>.html</code> however.  This time we need a <code>.css</code> extention on the file. I often name my primary stylesheet something like <code>main.css</code> or <code>styles.css</code>
+                    <div class="callout">
+                    <h3>File extensions</h3>
+                    <p>So what is up with these very particular rules for naming these files?  Last week we needed a <code>.html</code>, this week requires a <code>.css</code>.  These 3 character additions to our filenames are called extensions and are used by the operating system to identify of what <em>type</em> each file is that is stored on it.</p>
+                    <p>Almost all files have these actually...but a few years ago the operating systems developers decided that people didn't need to see them anymore and so they are hidden by default on Windows and Mac OS.</p>
+                    <p>If we don't name our HTML and CSS files with these extensions the browser will not know how to interpret them correctly...in other words our html and css will not look like we want it to.</p>
+                    </div></li>
+                    <li><p>Lets add a bit of CSS to our new file. Enter the following:</p>
+                    <pre><code class="css">
+* {
+ box-sizing: border-box;    /* changes width property to total width instead of content width */
+
+}
+
+article,
+aside,
+footer,
+header,
+nav,
+section,
+main,
+figcaption,
+figure {
+  display: block;   /* just in case we have any older browsers that don't recognize the HTML5 semantic elements */
+}
+
+body {
+    margin: 0;  /* remove any margin from body to avoid unsightly gaps. */
+    padding: 0;  /* ditto for padding  */
+    background-color: salmon;    
+}
+                    </code></pre>
+                       <div class="callout">
+                        <p>Hopefully that looks <em>somewhat</em> familiar.  You should notice the css pattern of </p>
+                        <pre><code class="css">
+selector {
+    property: value;
+}
+                        </code></pre>
+                        <p>that was in the reading repeated 3 times. The top selector is one you may not have seen before.  It is called the universal selector and will select <em>every</em> element on the page.  It should be used carefully, but in this case in is necessary to switch how our browser <a href="https://css-tricks.com/box-sizing/" target="_blank">calculates width</a>.</p>
+                        <p>The next rule is a 'just in case' sort of thing.  Older browsers won't recognize the HTML5 semantic elements, so this rule gives them a bit of guidance so that our page does not break.</p>
+                        <p>The third rule removes any margin and padding from the <code>body</code> element. If we don't do this sometimes you will get an small gap around your page that might not be desirable. The <code>background-color:</code> is just there so that we can tell if things are working.  We will remove it later.</p>
+                        <p>If the code above looks <em>completely</em> confusing to you then make sure to revisit your notes or the readings from this unit...and you should also seek out some help as well. <a href="https://www.w3schools.com/css/default.asp" target="_blank">W3schools</a> again has a good CSS tutorial.  If the code above troubles you spend some time working through the first 3-4 sections of that tutorial.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <p>The next step is to connect our CSS to our HTML. This is done with the <code>&lt;link&gt;</code> tag. If you used my boilerplate from last week you should have one already...if not you will need to add it now.</p>
+                        <p>The tag should look something like this:</p>
+                        <pre><code class="html">
+&lt;link rel="stylesheet" type="text/css" href="main.css" &gt;
+                        </code></pre>
+                        <p>Add this line if you don't have it yet in the <code>&lt;head&gt;</code> portion of your page now.  The <code>href="main.css"</code> would indicate that I have a stylesheet called "main.css" in the same directory as the HTML file I am working on that I would like to link.  If your file is <strong>not</strong> called "main.css" change that to whatever you named your file. If you chose to create a directory to store all your css in (very common practice) and your css file is in the directory, you will need to add that your path.</p>
+                        <div class="callout">
+                        <p>Check your page now in the browser.  If everything is linked up correctly you should see a <em>lovely</em> salmon background on your page. :)  If your background is still white, something went wrong and it's time for a bit of troubleshooting.</p>
+                        <p>The first thing to check is that your CSS is linking correctly with your HTML.  Open up the browser developer tools console. (alt+cmd+J on the mac in chrome or ctrl+shift+J on Windows.  <a href="https://support.google.com/chrome/answer/157179?hl=en" target="_blank">Chrome keyboard shortcuts</a>, or you can right-click and "inspect element" then click on the Console tab) </p>
+                        <p>Do you see any errors?  If you see a "Failed to load resource" error it means the browser cannot find your css file...check the path in the <code>href</code> attribute of the <code>link</code> element.</p>
+                        <p>If you don't see any errors in the console then you probably have an error <em>in</em> your css.  Validate!</p>
+                        </div>
+                    </li>
+                    <li>
+                        <p>Now we are ready to start adding CSS to layout our page. Before we can do that however we need to know <em>what</em> exactly needs to be done.  Pull up your franklin html page in the browser and set it to a mobile size...then pull up the <a href="../images/planning/wireframe-sm.png" target="_blank">small wireframe</a> next to it so you can compare.  This is what I see: </p>
+                        <img src="../images/franklin-wireframe-and-html.jpg" alt="Franklin comparison of the unstyled HTML and the small wireframe">
+                        <p>Take a few minutes and make a list of all of the changes that you see that need to happen...the steps to get from right to left.  Be as specific as you can.  Once you have made your list click below and compare your list with mine. Don't peek until <strong>after</strong> you make your list!</p>
+                        <section class="hint"><input type="checkbox" ><i></i> <h3>To Do</h3><div>
+                        <ol>
+                            <li>Move the "Local Weather" to the right</li>
+                            <li>Move "Local Weather" up closer to "Feeling Lucky"</li>
+                            <li>Remove the bullets from the list of links and remove the default padding from the list.</li>
+                            <li>Make the links flow horizontally, and take up an equal amount of space each</li>
+                            <li>Correct the height on the navigation bar </li>
+                            <li>Move the navigation bar to the bottom.</li>
+                            <li>Add a bit of space on the bottom of the page so that the footer is not hidden by the navigation bar</li>
+                            <li>Make sure that the main blocks that make up our page flow vertically</li>
+                            <li>Make sure the main blocks that make up our page are centered</li>                         
+                            <li>Make the current condition summary icon and high/low flow horizontally, with each one on the right edge and one on the left edge</li>
+                            <li>Hide the current conditions summary text and the Hourly details.</li>
+                        </ol></div></section>
+            <p>How did you do?  If you got all of them great job!  If you got all but e. and g., again great job!  Those two in particular are not very apparent if you haven't done something like this before.</p>
+            
+                      
+                        <div class="callout">
+                            <p>If I had come to you with the screenshot above and said "Make the right side look like the left" and then walked away, how would you have reacted?  I would imagine in the class the reactions would have ranged from confidence to terror!  Taken as a whole moving from the one to the other is a bit much to contemplate. The exercise that you did where you broke down the large task into as small of steps as you could is called critical or analytical thinking or problem solving.  This is a valuable (critical) skill in just about every field. </p>
+                            <p>Making a list as we have will normally take a problem that might appear beyond our abilities and turn it into something we can imagine ourselves doing. Look at the top item in the list:  "Move the 'Local Weather' to the right"  Is that something that you know how to do?  Is it something that you could figure out how to do?  I would say yes.</p>
+                            <p>I would encourage you to approach all of your assignments this way.  Start by figuring out in plain language what needs to happen, then translate those steps into HTML/CSS/JS. If you make your steps small enough, the translation of each step is often very easy. </p>
+                            <p>"...by small and simple things are great things brought to pass;" Alma 37:6</p>
+                        </div>
+                    </li>
+                    <li>
+                        <p>Armed with our list we can now start working on the items.  We will start together, and leave the remainder for you to finish up. Lets start with <code>main</code> portion of our page...items h and i.</p>
+                        <p class="callout">Anytime I see the terms "flow" and "horizontal" or "vertical" I immediately think of <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" target="_blank">flexbox</a>. Those types of things are <em>exactly</em> what flexbox was designed for. If you review that link above you will remember that at the core of flexbox is the concepts of parent/child, and axis.  The first step when using flexbox is to identify the elements we want to move...then find their immediate parent.</p>
+                        <p>My HTML looks like this for that portion of the page:</p>
+                        <pre><code class="html">
+&lt;main&gt;
+    &lt;section class="overview"&gt;
+        ...
+    &lt;/section&gt;
+    &lt;section class="cur_conditions"&gt;
+        ...
+    &lt;/section&gt;
+    &lt;section class="hourly"&gt;
+        ...
+    &lt;/section&gt;
+&lt;/main&gt;
+                        </code></pre>
+                        <p>The elements we want to make sure are flowing vertically are the <code>section</code>s that most of our content is in.  The parent of those elements is <code>main</code>.  That will be our flex parent.  If we add the following to our css it will turn flexbox "on" for the children of <code>main</code>:</p>
+                        <pre><code class="css">
+main {
+    display: flex;                       
+}
+                        </code></pre>
+                        <div class="callout">
+                            <p>After adding that last line you may have noticed that the elements that <em>were</em> flowing vertically like we wanted are now flowing <em>horizontally</em>!  That's not much of an improvement.  Why turn on flexbox at all if it's going to cause problems for us...</p>
+                            <p>The reason is item i in our list above.  It wants us to make sure all of the elements in the main portion of the page are centered.  Flexbox has excellent alignment controls that we will want to take advantage of.  Not to mention, if you refer back to the <a href="../images/planning/wireframe-lg.png" target="_blank">large wireframe</a> eventually we are going to need to switch these elements back and forth from column to row based on the width of the browser. Flexbox will make that really easy. </p>
+                            
+                        </div>
+                        <p>We can switch the flow back to vertical and center those elements with 2 more lines of CSS.  My rule ended up like this:</p>
+                        <pre><code class="css">
+main {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;                       
+}
+                        </code></pre>
+                        <p>Two down, nine to go.</p>
+                    </li>
+                      <li>
+                          <p>Lets tackle the navigation next, items d, e, and f.</p>
+                          <p>Notice that d. mentions "flow" again.  Probably another good time for flexbox.  Again we need to identify the things we are trying to move, then find their parent. In this case we need to move the list items that hold our links.  So our flex parent will be the <code>ul</code>. Try adding the following rule:</p>
+                       <pre><code class="css">
+ul {
+    display: flex;                       
+}
+                        </code></pre>
+                        <div class="callout">
+                        <p>What happened?  The list of links should have switched to a horizontal flow...but did you notice the hourly list?  It also went horizontal!  Our selector said change <em>all</em> unordered lists...and it did.  We need to be more specific so that only the unordered lists that we want change and not all of them.</p>
+                         <p>Take a minute to review this <a href="https://www.w3schools.com/cssref/css_selectors.asp" target="_blank">selector list</a> do you see anything there that might let us select the <strong>nav</strong> list but <strong>not</strong> hourly list?</p>
+                         <p>Did you notice the " " (space) selector. It is know as the descendant selector. According to W3schools <code>div p</code> would do this: "Selects all &lt;p&gt; elements <em>inside</em> &lt;div&gt; elements". The <code>ul</code> we want to target is inside of a <code>nav</code>, and the other is not.  Sounds hopeful.</p>
+                          </div>
+                          <p>Modify your css to use the descendent selector to make sure we only get <code>ul</code> elements that are inside of <code>nav</code> elements. You will know you have it right when one list is horizontal and one vertical on your page.</p>
+                          <p>You may have noticed that our list is very narrow now.  Thus item e.  If you goto <a href="https://www.w3schools.com/cssref/default.asp" target="_blank">W3schools</a> and search for "height" you should get a few hits.  The two that look the most promising to me are <code><a href="https://www.w3schools.com/cssref/pr_dim_height.asp" target="_blank">height</a></code> and <code><a href="https://www.w3schools.com/cssref/pr_dim_line-height.asp" target="_blank">line-height</a></code>.  Try using each of those to increase the height of your navbar.  Make sure to notice the difference between their behavior. </p>
+                          <p>On the wireframe the navbar is actually on the bottom of the screen. The easiest way to move something like that is by using the <code><a href="https://www.w3schools.com/cssref/pr_class_position.asp" target="_blank">position</a></code> property. In this case we want to move the entire <code>nav</code> element, and a value of <code>absolute</code> or <code>fixed</code> would work. Try the following CSS: </p>
+                          <pre><code class="css">
+nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+                          </code></pre>
+                          <p>Basically that tells the element to use the fixed positioning, and to have the left edge of the element on the left side ot the screen (left:0), the right edge of the element on the right side of the screen, and the bottom edge of the element on the bottom of the screen. Try taking off the left and right properties to see what happens.  Or change the 0 to some value.</p>
+                      </li>
+                      
+                       <li>
+                        <p>The first 2 items in the list deal with the title at the top.  The first thing we should do here is to make sure that our HTML is structured correctly.  We can save ourselves a lot of time and effort by doing this.  I need the two headlines to act together as one unit for some of this, and as two parts for other steps.  My HTML for that portion of the page looks like this:</p>
+                    <pre><code class="html">
+&lt;div class="title"&gt;
+    &lt;h1&gt;&lt;span &gt;&amp;#9856;&lt;/span&gt;&lt;span &gt;&amp;#9861;&lt;/span&gt; Feeling Lucky?&lt;/h1&gt;
+    &lt;h1&gt;Local Weather&lt;/h1&gt;
+&lt;/div&gt;
+                    </code></pre>
+                       <p>I needed some way of selecting these headlines and differentiating them from other headlines, so I added a <code>class</code> attribute with a value of <code>title</code> to the container that they are both in. I can now use that to write some CSS.  First step above was to take our subheading "Local Weather"  and right align it.  That is just plain text...inline elements and so we can use <code>text-align</code> in this case.  The rule might look like this:</p>
+                      <pre><code class="css">
+h1 {
+    text-align: right;        
+}
+                      </code></pre> 
+                        <p>If you add that to your CSS however, you will notice that <strong>both</strong> of our headlines will move to the right.  We need to be more specific with our selector.  </p>
+                        <div class="callout">
+                            <p>We have a couple of choices here.  We could add another class to the <code>h1</code> around "Local Weather", and then write a css rule using that.  Attaching classes to everything can often cause problems however.  Take a minute to review this <a href="https://www.w3schools.com/cssref/css_selectors.asp" target="_blank">selector list</a> again. Do you see anything there that might let us select the <strong>second</strong> headline in that <code>div</code>? </p>
+                            <p>Ah...did you notice the "+" selector?  It's called the sibling selector and according to the description <code>div + p</code> will do this: "Selects all &lt;p&gt; elements that are placed immediately after &lt;div&gt; elements".  So what would happen then if we tried <code>h1 + h1</code>?  It would select every <code>h1</code> tag that followed immediately <em>after</em> another <code>h1</code>. Perfect!</p>
+                            <p>We should use that selector...but we can actually make it a little safer at the same time.  Let's use the descendant selector again. The headlines we are targetting are inside of a <code>div</code> with a <code>class</code> of <code>title</code> How could we add that information to make sure our rule <em>only</em> applied to an h1 that followed another h1 that was inside of an element with class="title"?</p>
+                        </div>
+                        <p>My css rule now looks like this:</p>
+<pre><code class="css">
+.title h1 + h1 {
+    text-align: right;        
+}
+                      </code></pre> 
+                      <p>Read in english this would be: "select any h1 elements that follow an h1 element and are <em>inside</em> of an element identified with a class of title".</p> 
+                        <p>We have one more task related to this element.  We also need to move it closer to the preceeding title.  We have a selector already that we can use targetting that element.  How can we move it closer?  Remember that <code>margin</code> is the space between two elements.  Margins can have positive or <em>negative</em> values.  Try adding the following to your rule: <code>margin-top: -.7em;</code>  </p>
+                    </li>
+                    <li>
+                        <p>We have now worked through most of our list...there are 4 items left for you.  Complete the layout of the Franklin weather page by completing the rest of the list items: c, g, j, and k.</p>
+                    </li>
+                    <li>Validate your page.  Make sure to check both the HTML <strong>and</strong> CSS now.  The easiest way to do this would be to use the Developer tools you installed in the first week. Fix <strong>all</strong> errors.</li>
+                    <li>Make sure the link on your temporary homepage to this page is still working properly.  Then make sure to commit and sync your work in Github Desktop.  Check your URL (should look like githubusername.github.io) to make sure all of your changes show, and to check that your images all work.</li>
+                </ol>
+				 <h2>Grading Matrix</h2>
+        <p>This assessment will be graded for two objectives: 2 and 6.</p>
+        
+        <h3>Objective 2 - 15 points</h3>
+        <ul>
+					<li>All CSS is applied with an external stylesheet - 3 points</li>
+					<li>CSS is organized with whitespace and comments - 3 points</li>
+					<li>Primary layout of the page is done with Flexbox with minimal use of position or float - 3 points</li>
+					<li>Responsiveness: The page layout renders in a mobile size screen without requiring zooming - 3 points</li>
+					<li>The page is valid CSS3 - 3 points</li>
+										
+				</ul>
+       
+        
+        <h3>Objective 6 - 10 points</h3>
+        
+        <ol>
+          <li>Layout looks like the small wireframe. Only content on the small wireframe is shown - 3 points</li>
+          <li>Assignment submitted on time - 4 points</li>
+          <li>No Grammar or spelling errors - 3 points</li>
+
+        </ol>
+			</article>
+		</main>
+		<footer id="footer">
+			<a rel="license" href="//creativecommons.org/licenses/by-sa/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-sa/3.0/88x31.png"></a> All materials (except as noted) are by Shane Thompson and licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative Commons Attribution-ShareAlike 3.0 License</a>.</footer>
+	</div>
+	<script src="../js/course.min.js"></script>
+	<script src="../js/highlight.pack.js"></script>
+    <script>
+        // <![CDATA[
+        hljs.initHighlightingOnLoad();
+        // ]]>
+    </script></body></html>
