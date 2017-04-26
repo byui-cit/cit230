@@ -1,0 +1,189 @@
+<!doctype html>
+
+<html lang="en-us"><head>
+	<meta charset="UTF-8">
+	<title>Franklin Complete | Web Frontend Development</title>
+	<meta name="description" content="Activity to create the HTML for the Franklin weather page for CIT 230">
+	<meta name="viewport" content="width=device-width">
+	<link rel="stylesheet" href="../css/solarized-light.css" />	
+	<link rel="stylesheet" href="../css/course.css">
+</head>
+
+<body class="faq">
+	<div id="main">
+		<header id="header">
+			<img src="../images/smallbanner.jpg" alt="CIT 230 Course Banner">
+		</header>
+		<main>
+			<article id="article">
+				<h1>Franklin - Complete</h1>
+				<hr class="rulestyle">
+                <h2>Overview</h2>
+                <p>Last week we worked on the layout for our weather site by using CSS the first page...Franklin.  Our page now should show a lot of simularity to our small wireframe, but it still look pretty rough...especially if we increase the size of our screen!  This week we need to apply the rest of the styling to polish things up and add CSS code to make our page responsive: Adaptable to changes in the size of the screen it is viewed on.</p>
+                <div class="callout">
+                    <h3>Responsiveness</h3>
+                    <p>Make sure to have completed the  <a href="https://www.sitepoint.com/premium/courses/introduction-to-responsive-web-design-2889" target="_blank">Introduction to Responsive Web Design</a> course on sitepoint before proceeding with this activity.</p>
+                    <p>At the core of the responsive design movement...the structure responsible for bring the magic as it were, is the <code>@media</code> query.  A query is a question or condition, and so a "media query" is a question or condition about the media our page is currently being displayed on.  The browser can track this, and we can make our designs adapt as a result.</p>
+                    
+                </div>
+                <h2>Tasks</h2>
+                <ol>
+                    <li>Review the <a href="../images/planning/wireframe-lg.png" target="_blank">large</a> wireframe to remind yourself of how it should look...compare it to what our page currently looks like. Keep it handy as we will be referring back to it often.  </li>
+                    <li><p>Refer to this mockup as well. It will give you a better idea about the final goal we are shooting for with our design.</p>
+                    
+                    <div class="callout">
+                    <h3>Style guides</h3>
+                    <p>Up until now we have been working with a wireframe.  Speaking in construction terms a wireframe is very much like a blueprint for a structure.  It gives us information about space and location...the number of rooms for example in a house, and how they are positioned and related...but it doesn't really tell us about what the kitchen cabinets will look like, or what color the living room will be painted.  Those are important details...but blueprints are not designed to provide them.</p>
+                    <p>We need more information than what is on the wireframe in order to complete our site. For us the missing pieces can be found in the planning document we worked with a few weeks ago...in the Style guide portion. Fonts, colors, and styling for specific elements can all be found there.</p>
+                    <p>You should open your site-plan up as well and keep it handy for this assignment.</p>
+                    
+                    </div></li>
+                    <li>Just like last week we should make a list of what we think we need to do to finish our site. Refer to the Style guide and wireframes when doing this.  Once you are done with your list compare it to mine.
+                    <section class="hint"><input type="checkbox" ><i></i> <h3>To Do</h3><div>
+                        <ol>
+                            <li>Change all body copy font to Helvetica</li>
+                            <li>Change all headline font to Sansita</li>
+                            <li>Adjust font sizes to ensure they are readable, and clickable in the case of navigation links</li>
+                            <li>Change the background color behind the header and footer to the primary: #A6D8DB.</li>
+                            <li>Change the background color behind the navbar to the secondary: #F07C6C</li>
+                            <li>Change the styles on the links in the navbar to match the style guide. (normal and visited: accent2 no underline, hover: accent1 underlined, active: underlined and primary) </li>
+                            <li>Add a background image behind the main content</li>
+                            <li>Style the content boxes based on the image and styles given in the style guide.</li>
+                            <li>Adjust font colors as needed to maintain readability</li>
+                            <li>Adjust padding/margins as needed to match wireframe.</li>
+                            <li>Rotate the dice in the logo to a jaunty angle and adjust spacing.</li>                   
+                            <li>Add @media queries to allow the layout to respond to large screens and change to match the large wireframe.</li>
+                            
+                        </ol></div></section>
+                        <p>How did you do?  You might look at that last item in my list and say: 'seriously?'  I didn't do a very good job at breaking that down into steps.  It actually deserves it's own list.  We'll do that below...lets take care of the rest of the list first.</p>
+                    </li>
+                    <li><p>Lets add some details. Refer to the style guide and find the portion on typography. Notice that fonts were specified for both headlines and body text.  Lets change those now.</p>
+                        <p>Font is governed by the <a href="https://www.w3schools.com/cssref/pr_font_font-family.asp" target="_blank"><code>font-family</code></a> property. Notice in the example on that site that they have 3 fonts listed. This is for redundancy in case the browser cannot find the first choice. Fonts are listed in order of: preferred font, second choice, generic font family.</p>
+                        
+                        <div class="callout">
+                           <p>If we want to change the font for all of our text where should we do it? </p>
+                            <p>If you go back and look at that link for <a href="https://www.w3schools.com/cssref/pr_font_font-family.asp" target="_blank"><code>font-family</code></a> again scroll down just a bit and you will find a table with information about the property...the one we are looking for starts with "Default value". Right after that you see "Inherited: yes".  Some CSS properties only apply to the element to which they are applied.  Other elements (like font-family) will be applied to the element to which they are attached, and <em>all of it's descendents</em>. So if we want all of our text to use a certain font, we could apply it at the <code>body</code>, and since everything is inside that element, everything will inherit that font!</p>
+                        </div>
+                        <p>Make a rule for <code>body</code> applying the list of body fonts to it in your css.</p>
+                        <p>Make another rule in your css that will apply the headline font to all headlines.</p>
+                        <div class="callout">
+                        <p>The style guide only gave us one font for our headlines!  We need to find one more font that is somewhat similar to the desired font to add to our list. The best would be if you can find one of the <a href="https://www.w3schools.com/cssref/css_websafe_fonts.asp" target="_blank">web safe fonts</a> to use as our second choice. Then choose the best fit from the generic font families for the 3rd choice: cursive, fantasy, mono-space, serif, sans-serif</p>
+                        <p>One other problem, what should we use for the selector if we want to change all headlines?  whenever you have the same or similar styles you want applied to more than one selector, you can list the styles once, and use commas to add the selectors...like this:</p>
+                       
+                    <pre><code class="css">
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: Sansita, "second choice", generic-family;
+}
+                    </code></pre>
+                            <p>After adding the css above (and replacing the placeholder text with your choices) you might have noticed that the headline fonts did not change! Sansita is not a font that is found on most computers, and computers can only display fonts they know.  If we want to use Sansita, we have to provide it.  I found the Sansita font on <a href="https://fonts.google.com/" target="_blank">Google Fonts</a>, a collection of royalty free fonts that Google makes available.  If you go there and search for "sansita" it will pull up the font. Click on the plus, then on the black box that appears. </p>
+                            <p>Google lists two ways to add the font: Standard, and @Import.  I prefer the @import method...click on that tab and it will give you some CSS to add to your file.</p>
+                            <p>Important! Add that @import line to the very top of your css! It should look something like this:</p>
+                            <pre><code class="css">
+@import url('https://fonts.googleapis.com/css?family=Sansita');
+                            </code></pre>
+                        </div>
+                       
+                    </li>
+                    <li>
+                        <p>Let's adjust fonts sizes now.  As I look at the page in the browser, and especially if I look at it on an actual phone all the font feels a bit small. I think an increase across the board would be a good thing. The default font size for browsers is 16px.  Lets try upping that to 20px.  Add the following line to your <code>body</code> rule in your css.</p>
+                        <pre><code class="css">
+font-size: 20px;
+                        </code></pre>
+                        <div class="callout">
+                            <p>Did you notice when you added that last line that <em>all</em> of the fonts increased? Including the headlines? If you inspect element an look at one of the headline in the developer tools you will notice a section of css that is being applied that you didn't write. The styles are on a light grey background and labeled "user agent stylesheet" </p>
+                            <p>These are the default browser styles and on an <code>h1</code> you will notice <code>font-size: 2em;</code> If you refer back to the <a href="https://www.sitepoint.com/look-at-length-units-in-css/" target="_blank">Sitepoint article on units</a> that you were asked to read this week it will remind you that "em" is a relative unit.  As the base or parent font size gets bigger...so will everything using an "em" to describe it's size. </p>
+                            <p>Before we added that line 1em = 16px, after that line 1em = 20px. So our H1 at 2em would now be 40px instead of 32px.</p>
+                        </div>
+                        <p>Use the <code>font-size</code> property to adjust the size of all of the text on the page to match the small wireframe. Adjusting the base size got us close, but there are adjustments that need to be made. You may need to add some classes to a few elements to accomplish this.</p>
+                        
+                    </li>
+                    <li>
+                        <p>Next we need to adjust some background colors. The <code>header</code>, <code>footer</code>, and <code>nav</code> should all have colored backgrounds as specified in our list. I will leave this to you. The property you will need to apply to those 3 elements is <a href="https://www.w3schools.com/cssref/pr_background-color.asp" target="_blank"><code>background-color</code></a></p>
+                        
+                    </li>
+                    <li>
+                        <p>Links are next. The style guide specified that our links should be styled in a particular way, and that they should be interactive...change when the use hovers over them. How do we do this? </p>
+                        
+                        <p class="callout">We have learned how to target elements...things that exist in our page, but to do this task we need to target the <em>state</em> of an element. Enter <a href="https://www.w3schools.com/css/css_pseudo_classes.asp" target="_blank">pseudo-classes</a>. These are special selector that do just what we need here...they target things that don't really exist in the <a href="https://www.w3schools.com/js/js_htmldom.asp" target="_blank">DOM</a> (all of the objects or elements on our page). One of the pseudo-classes is <a href="https://www.w3schools.com/cssref/sel_hover.asp" target="_blank">hover</a>.  That resource actually has a good example of styling all the states of a link...exactly what we need to do. <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" target="_blank">flexbox</a>. </p>
+                        <p>So to style my navigation links normal state I would do something like this:</p>
+                        <pre><code class="css">
+nav a:link {
+    text-decoration: none;
+    color: #47556F;        
+}
+                        </code></pre>
+                        <p>First notice the selector I used.  I used the descendent selector to target <em>only</em> links that are in a <code>nav</code> element. I really don't want these styles to apply to all links. Then I changed 2 things: removed the underline (text-decoration) and changed the color of the text.</p>
+                        <p>Add the CSS to style the other states of the links: visited, hover, active.</p>
+                        <div class="callout">
+                        <p>Two things to watch for on this.  CSS is often indifferent about spaces between things. It will treat <code>color: #47556F</code> and <code>color:#47556F</code> exactly the same.  It is not <strong>always</strong> indifferent however.</p>
+                        <p> <code>nav a:link</code> is <strong>not</strong> treated the same as <code>nav a: link</code>.  You can't have any spaces between the ":" on pseudo-class selectors.</p>
+                        <p>The other issue is that the order that we define the states matters.  For them to all work right they should be defined in the css in this order: link, visited, hover, active</p>
+                        <p>As always if you have any problems with your CSS, Validate!</p>
+                        </div>
+                        
+                    </li>
+                      <li>
+                          <p>The Wireframe shows that we should have an image behind most of the content.  You may have notcied that I did not have you add that image earlier when we were adding content. In this case it would be better to add the image as a <a href="https://www.w3schools.com/cssref/pr_background-image.asp" target="_blank">background image</a>. Lets do that now.</p>
+                          <p>Background images are actually pretty easy to use.  We need to decide which element should host the image. In this case it looks like pretty much all of the content in <code>main</code> is on the image...so lets attach it there. We need an image that is the right size and shape. We will talk about working with images more later, but for now you can use <a href="../images/sunny-winter.jpg" alt="image of a sunny winter scene">this image</a>. Download the image to your web directory and then add css similar to this to your <code>main</code> rule (make sure to correct the path based on where you put the image):</p>
+                       <pre><code class="css">
+background-image: url("images/sunny-winter.jpg");
+background-size: cover;
+                        </code></pre>
+                        <p>Review the link above to understand what both of these properties are doing and what other options you have with using them.</p>
+                        
+                      </li>
+                      
+                       <li>
+                        <p>The styleguide show a very specific styling for the content boxes on the page.  It included this image:</p>
+                        <img src="../images/planning/rounded-example.jpg" alt="ui example">
+                        <p>It also included the styles you will need to make something look like that: </p>
+                    <pre><code class="css">
+background-color: rgba(200,200,200,.6);
+margin: .2em auto;
+border: 1px solid;
+border-radius: 5px;
+                    </code></pre>
+                      <div class="callout">
+                          <p>Lets look at each of those lines.</p>
+                          <p>The first we have used before, <code>background-color</code>, you may not have seen that way of specifying color however.  RGB functions similarly to hexidecimal, except that the values range from 0-250.  (250,250,250) would be white. Interesting thing about colors, whether hex or rgb...if you have the same value for all 3 parts...you get grey.  High numbers give a light grey, low numbers give a dark grey. </p>
+                          <p>You may have also noticed that this is a rgb<em>a</em> value.  The <em>a</em> stands for <em>alpha</em>...it's another way to say transparency.  The ".6" value there means make this color 60% visible.</p>
+                          <p>The next line is to give a bit of separation between content boxes that follow each other. The <code>auto</code> for the second value also works to center the element horizontally.</p>
+                          <p>The next 2 lines place a border around the element, and make the corners rounded.</p>
+                      </div>
+                      <p>Using the CSS above apply the styles to the location, temperature box, and current conditions box. You may need to add some classes to do this.</p>
+                       
+                    </li>
+                    <li>
+                        <p>Lets skip to item k.  Rotating an element is done with the <a href="https://www.w3schools.com/cssref/css3_pr_transform.asp" target="_blank">transform</a> property. Spend some time on that page to get an idea of what you can do with transforms. For now we will focus on <code>rotate</code>.  Try applying the following css to one of the dice icons. </p>
+                        <pre><code class="css">
+.rotate25 {
+    transform: rotate(25deg);
+    display: inline-block;
+}
+                        </code></pre>
+                        <p>I think 25deg is quite jaunty! If you disagree then feel free to change the angle of rotation until you find something you like.</p>
+                    </li>
+                    <li>
+                        <p>At this point we are quite close to having the small version of our site complete. Items i and j in the list I will leave to you.  Add padding and margins where appropriate, and if there is any text that is difficult to read fix it by changing the color or size of the font.</p>
+                    </li>
+                    <li>
+                        <p>Now we come to the last item...make our page responsive.  I mentioned above that it really deserved it's own list.  Lets go make that list in the next activity: <a href="franklin-responsive.html">Franklin: responsive.</a> </p>
+                    </li>
+                    
+			</article>
+		</main>
+		<footer id="footer">
+			<a rel="license" href="//creativecommons.org/licenses/by-sa/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-sa/3.0/88x31.png"></a> All materials (except as noted) are by Shane Thompson and licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative Commons Attribution-ShareAlike 3.0 License</a>.</footer>
+	</div>
+	<script src="../js/course.min.js"></script>
+	<script src="../js/highlight.pack.js"></script>
+    <script>
+        // <![CDATA[
+        hljs.initHighlightingOnLoad();
+        // ]]>
+    </script></body></html>
