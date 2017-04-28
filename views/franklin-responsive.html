@@ -29,156 +29,161 @@
                 <h2>Tasks</h2>
                 <ol>
                     <li>Review the <a href="../images/planning/wireframe-lg.png" target="_blank">large</a> wireframe to remind yourself of how it should look...compare it to what our page currently looks like. Keep it handy as we will be referring back to it often.  </li>
-                    <li><p>Refer to this mockup as well. It will give you a better idea about the final goal we are shooting for with our design.</p>
                     
-                    <div class="callout">
-                    <h3>Style guides</h3>
-                    <p>Up until now we have been working with a wireframe.  Speaking in construction terms a wireframe is very much like a blueprint for a structure.  It gives us information about space and location...the number of rooms for example in a house, and how they are positioned and related...but it doesn't really tell us about what the kitchen cabinets will look like, or what color the living room will be painted.  Those are important details...but blueprints are not designed to provide them.</p>
-                    <p>We need more information than what is on the wireframe in order to complete our site. For us the missing pieces can be found in the planning document we worked with a few weeks ago...in the Style guide portion. Fonts, colors, and styling for specific elements can all be found there.</p>
-                    <p>You should open your site-plan up as well and keep it handy for this assignment.</p>
-                    
-                    </div></li>
-                    <li>Just like last week we should make a list of what we think we need to do to finish our site. Refer to the Style guide and wireframes when doing this.  Once you are done with your list compare it to mine.
+                    <li>Once again I think the best way to proceed will be to create a list of all of the things we need to do to convert our small screen page to the large screen version shown in the large wireframe.  Once you are done with your list compare it to mine.
                     <section class="hint"><input type="checkbox" ><i></i> <h3>To Do</h3><div>
                         <ol>
-                            <li>Change all body copy font to Helvetica</li>
-                            <li>Change all headline font to Sansita</li>
-                            <li>Adjust font sizes to ensure they are readable, and clickable in the case of navigation links</li>
-                            <li>Change the background color behind the header and footer to the primary: #A6D8DB.</li>
-                            <li>Change the background color behind the navbar to the secondary: #F07C6C</li>
-                            <li>Change the styles on the links in the navbar to match the style guide. (normal and visited: accent2 no underline, hover: accent1 underlined, active: underlined and primary) </li>
-                            <li>Add a background image behind the main content</li>
-                            <li>Style the content boxes based on the image and styles given in the style guide.</li>
-                            <li>Adjust font colors as needed to maintain readability</li>
-                            <li>Adjust padding/margins as needed to match wireframe.</li>
-                            <li>Rotate the dice in the logo to a jaunty angle and adjust spacing.</li>                   
-                            <li>Add @media queries to allow the layout to respond to large screens and change to match the large wireframe.</li>
-                            
+                            <li>Align the Logo/headline block to the left edge of the layout.</li>
+                            <li>Move the navbar back up to right below the logo.</li>
+                            <li>Make the hidden content visible.</li>
+                            <li>Change the flow of the main content boxes to horizontal.</li>
+                            <li>Adjust the size on the 3 content boxes to be the same height and width.</li>
+                            <li>Remove the spacing around the content boxes, and the rounded corners.</li>
+                            <li>Move the background image from the <code>main</code> element to the the element that contains the location and temperature info</li>
+                            <li>Change the order of the content boxes to match the wireframe.</li>
+                            <li>Style the Hourly list</li>
+                            <li>Restrict the max-width of the page to 800px to keep it from getting too wide and center the page.</li>
+                                                        
                         </ol></div></section>
-                        <p>How did you do?  You might look at that last item in my list and say: 'seriously?'  I didn't do a very good job at breaking that down into steps.  It actually deserves it's own list.  We'll do that below...lets take care of the rest of the list first.</p>
+                        <p>This list was a bit harder to come up with.  If you came close great job! The last one I didn't expect you to get. The wireframe doesn't really indicate that it will be necessary...but once we get to that point you will find that this layout really doesn't work well at really wide screen sizes. So I will show you a trick to handle that.</p>
                     </li>
-                    <li><p>Lets add some details. Refer to the style guide and find the portion on typography. Notice that fonts were specified for both headlines and body text.  Lets change those now.</p>
-                        <p>Font is governed by the <a href="https://www.w3schools.com/cssref/pr_font_font-family.asp" target="_blank"><code>font-family</code></a> property. Notice in the example on that site that they have 3 fonts listed. This is for redundancy in case the browser cannot find the first choice. Fonts are listed in order of: preferred font, second choice, generic font family.</p>
+                    <li><p>Let's start at the top. Our first task is to change the logo/title at the top. We need the both thing (both lines) to be left aligned, but the second line to still be right aligned.  We will probably need ot set a width as well to keep it from going all the way over to the right edge of the browser. We need this change to happen when the browser window gets wide enough that the way it is currently styled starts breaking.</p>
                         
                         <div class="callout">
-                           <p>If we want to change the font for all of our text where should we do it? </p>
-                            <p>If you go back and look at that link for <a href="https://www.w3schools.com/cssref/pr_font_font-family.asp" target="_blank"><code>font-family</code></a> again scroll down just a bit and you will find a table with information about the property...the one we are looking for starts with "Default value". Right after that you see "Inherited: yes".  Some CSS properties only apply to the element to which they are applied.  Other elements (like font-family) will be applied to the element to which they are attached, and <em>all of it's descendents</em>. So if we want all of our text to use a certain font, we could apply it at the <code>body</code>, and since everything is inside that element, everything will inherit that font!</p>
+                           <p>What do I mean by "breaking"?  We created the mobile version of our page first.  Do this...open up your Franklin page and make your browser window small...like a phone screen. Then start to drag the window wider. As the screen size gets wider and wider you will start to see some issues.  The layout will fail and it will start to look icky.  I see this first at about 550px.  The header breaks first.  The lower line starts being not under the top line.  The content also starts looking a bit lost with all of the space on the edges. </p>
+                           <p>At each point where we notice problems we can create a breakpoint.  Breakpoints are created using a <a href="https://www.w3schools.com/cssref/css3_pr_mediaquery.asp" target="_blank"><code>@media</code></a> query. These are used to allow the browser to apply different CSS rules under different conditions.</p>
+                            
                         </div>
-                        <p>Make a rule for <code>body</code> applying the list of body fonts to it in your css.</p>
-                        <p>Make another rule in your css that will apply the headline font to all headlines.</p>
-                        <div class="callout">
-                        <p>The style guide only gave us one font for our headlines!  We need to find one more font that is somewhat similar to the desired font to add to our list. The best would be if you can find one of the <a href="https://www.w3schools.com/cssref/css_websafe_fonts.asp" target="_blank">web safe fonts</a> to use as our second choice. Then choose the best fit from the generic font families for the 3rd choice: cursive, fantasy, mono-space, serif, sans-serif</p>
-                        <p>One other problem, what should we use for the selector if we want to change all headlines?  whenever you have the same or similar styles you want applied to more than one selector, you can list the styles once, and use commas to add the selectors...like this:</p>
-                       
-                    <pre><code class="css">
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-family: Sansita, "second choice", generic-family;
-}
-                    </code></pre>
-                            <p>After adding the css above (and replacing the placeholder text with your choices) you might have noticed that the headline fonts did not change! Sansita is not a font that is found on most computers, and computers can only display fonts they know.  If we want to use Sansita, we have to provide it.  I found the Sansita font on <a href="https://fonts.google.com/" target="_blank">Google Fonts</a>, a collection of royalty free fonts that Google makes available.  If you go there and search for "sansita" it will pull up the font. Click on the plus, then on the black box that appears. </p>
-                            <p>Google lists two ways to add the font: Standard, and @Import.  I prefer the @import method...click on that tab and it will give you some CSS to add to your file.</p>
-                            <p>Important! Add that @import line to the very top of your css! It should look something like this:</p>
-                            <pre><code class="css">
-@import url('https://fonts.googleapis.com/css?family=Sansita');
-                            </code></pre>
-                        </div>
-                       
-                    </li>
-                    <li>
-                        <p>Let's adjust fonts sizes now.  As I look at the page in the browser, and especially if I look at it on an actual phone all the font feels a bit small. I think an increase across the board would be a good thing. The default font size for browsers is 16px.  Lets try upping that to 20px.  Add the following line to your <code>body</code> rule in your css.</p>
+                        <p>Add a media query to your css at the bottom.  Let's use 550px as our breakpoint.  We need to do 2 things: set a width on the header titles, and make sure they are left aligned. Mine looks like this:</p>
                         <pre><code class="css">
-font-size: 20px;
-                        </code></pre>
-                        <div class="callout">
-                            <p>Did you notice when you added that last line that <em>all</em> of the fonts increased? Including the headlines? If you inspect element an look at one of the headline in the developer tools you will notice a section of css that is being applied that you didn't write. The styles are on a light grey background and labeled "user agent stylesheet" </p>
-                            <p>These are the default browser styles and on an <code>h1</code> you will notice <code>font-size: 2em;</code> If you refer back to the <a href="https://www.sitepoint.com/look-at-length-units-in-css/" target="_blank">Sitepoint article on units</a> that you were asked to read this week it will remind you that "em" is a relative unit.  As the base or parent font size gets bigger...so will everything using an "em" to describe it's size. </p>
-                            <p>Before we added that line 1em = 16px, after that line 1em = 20px. So our H1 at 2em would now be 40px instead of 32px.</p>
-                        </div>
-                        <p>Use the <code>font-size</code> property to adjust the size of all of the text on the page to match the small wireframe. Adjusting the base size got us close, but there are adjustments that need to be made. You may need to add some classes to a few elements to accomplish this.</p>
-                        
-                    </li>
-                    <li>
-                        <p>Next we need to adjust some background colors. The <code>header</code>, <code>footer</code>, and <code>nav</code> should all have colored backgrounds as specified in our list. I will leave this to you. The property you will need to apply to those 3 elements is <a href="https://www.w3schools.com/cssref/pr_background-color.asp" target="_blank"><code>background-color</code></a></p>
-                        
-                    </li>
-                    <li>
-                        <p>Links are next. The style guide specified that our links should be styled in a particular way, and that they should be interactive...change when the use hovers over them. How do we do this? </p>
-                        
-                        <p class="callout">We have learned how to target elements...things that exist in our page, but to do this task we need to target the <em>state</em> of an element. Enter <a href="https://www.w3schools.com/css/css_pseudo_classes.asp" target="_blank">pseudo-classes</a>. These are special selector that do just what we need here...they target things that don't really exist in the <a href="https://www.w3schools.com/js/js_htmldom.asp" target="_blank">DOM</a> (all of the objects or elements on our page). One of the pseudo-classes is <a href="https://www.w3schools.com/cssref/sel_hover.asp" target="_blank">hover</a>.  That resource actually has a good example of styling all the states of a link...exactly what we need to do. <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" target="_blank">flexbox</a>. </p>
-                        <p>So to style my navigation links normal state I would do something like this:</p>
-                        <pre><code class="css">
-nav a:link {
-    text-decoration: none;
-    color: #47556F;        
+@media screen and (min-width: 34em) {
+    .title {
+        width: 20em;
+    }
 }
                         </code></pre>
-                        <p>First notice the selector I used.  I used the descendent selector to target <em>only</em> links that are in a <code>nav</code> element. I really don't want these styles to apply to all links. Then I changed 2 things: removed the underline (text-decoration) and changed the color of the text.</p>
-                        <p>Add the CSS to style the other states of the links: visited, hover, active.</p>
+                        <p>My HTML for this section looks like this:</p>
+                        <pre><code class="html">
+&lt;header&gt;
+    &lt;div class="title"&gt;
+        &lt;h1&gt;&lt;span class="icon"&gt;&#9856;&lt;/span&gt;&lt;span class="icon rotate25"&gt;&#9861;&lt;/span&gt; Feeling Lucky?&lt;/h1&gt;
+        &lt;h1&gt;Local Weather&lt;/h1&gt;
+    &lt;/div&gt;
+    ...
+&lt;/header&gt;
+                        </code></pre>
+                        
                         <div class="callout">
-                        <p>Two things to watch for on this.  CSS is often indifferent about spaces between things. It will treat <code>color: #47556F</code> and <code>color:#47556F</code> exactly the same.  It is not <strong>always</strong> indifferent however.</p>
-                        <p> <code>nav a:link</code> is <strong>not</strong> treated the same as <code>nav a: link</code>.  You can't have any spaces between the ":" on pseudo-class selectors.</p>
-                        <p>The other issue is that the order that we define the states matters.  For them to all work right they should be defined in the css in this order: link, visited, hover, active</p>
-                        <p>As always if you have any problems with your CSS, Validate!</p>
+                        <p>So you may have noticed something when you applied that CSS.  When the screen reached a certain width the second line of the title jumped back to be directly under the first line.  All we did was set a width.</p>
+                        <div class="fig-block">
+                            <figure><img src="../images/franklin-responsive-530-off.jpg" alt="Franklin at 530px with no media query"><figcaption>550px - no media query</figcaption></figure>
+                            <figure><img src="../images/franklin-responsive-530-on.jpg" alt="Franklin at 530px with some media query"><figcaption>550px - with a media query adjusting the title</figcaption></figure>
                         </div>
+                        <p>  You may be wondering though, where did those numbers come from? 34em?  20em?  I thought we wanted our changes to happen at 550px! "Did you just make those up?" you might ask.</p>
+                        <p> Well 34em really is 550px.  (550 / 16 ~= 34) 16px is the default font size remember, and an 'em' is a measurement unit based on font size.  The other number, 20em, ya...I made that up :)  I played around with the size of that box until I found something I thought looked good.</p>
+                        <p>If your headline adjusted as I described congratulations! You've just used your first @media query.  If it didn't keep working at it...don't be afraid to ask for help!</p>
+                       
+                    
+                        </div>
+                       
+                    </li>
+                    <li>
+                        <p>Our second task is to bring the navbar back up from the bottom to right below the title block. Think about this for a minute and see if you can figure out how to do it before you continue and look at my solution. (Hint: done correctly you should only need <strong>one</strong> changed property! Consider at how we made it go to the bottom in the first place.)</p>
+                        <section class="hint"><input type="checkbox" ><i></i> <h3>Spoiler!</h3><div>
+                        <pre><code class="css">
+nav {
+    position: static;
+}
+                        </code></pre>
+                        <p>Why does that work?  Well to get our nav to the bottom we set it's <code>position</code> to <code>fixed</code>.  Where would the nav have been if we hadn't done that? At the top where we need it now! We just had to undo the <code>position:fixed</code> and set that property back to the default.  How can you know what the default is?  <a href="https://www.w3schools.com/cssref/default.asp" target="_blank">W3Schools</a> is your friend here.</p>
+                        </div></section>
+                                            
+                        
+                    </li>
+                    <li>
+                        <p>Our next task should be pretty straightforward after the last step.  We need to make all the hidden content visible. I bet you can figure it out.</p>
+                        
+                    </li>
+                    <li>
+                        <p>Now that we have all of the content showing again, our next task it to make the 3 main content boxes in main flow horizontally instead of vertically, and fix their size and shape. Remember we used flexbox earlier to lay this out.  One of the reasons we did that was to make this step much easier. </p>
+                        
+                        <div class="callout">
+                        <p >Flexbox has two orientations: column and row.  Changing between them can be done with the <code>flex-direction</code> property. Flexbox also has 2 properties to adjust alignment: <code>justify-content</code> for main axis and <code>align-items</code> for cross axis.</p>
+                        <p>In this case we need to change our axis to row...or horizontal, this will sovle out first issue. The second is to make the boxes all the same size...both height and width.  For width we can use the <code>flex</code> property on our flex children, and for the height we can use a special value for cross-axis alignment (align-items) called "stretch".  If none of these terms are sounding familiar you shuold go do a bit of review of <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/"  target="_blank">CSS Tricks</a> </p>
+                        
+                        </div>
+                        <p>So to accomplish this I tried this:</p>
+                        <pre><code class="css">
+main {
+    flex-direction: row;
+    align-items: stretch;
+
+}
+main > section {
+    flex: 1 0 30%;
+}
+                        </code></pre>
+                        <p>The first rule changed my flow from column to row. And instructed the elements flexing to stretch to be the same height.  The second rule selected all sections that are direct children of <code>main</code> to grow as much as they want up to one share of the space each, to not shrink below where they started, and to start at 30% of the space.  That essentially makes all 3 sections the same width.</p>
                         
                     </li>
                       <li>
-                          <p>The Wireframe shows that we should have an image behind most of the content.  You may have notcied that I did not have you add that image earlier when we were adding content. In this case it would be better to add the image as a <a href="https://www.w3schools.com/cssref/pr_background-image.asp" target="_blank">background image</a>. Lets do that now.</p>
-                          <p>Background images are actually pretty easy to use.  We need to decide which element should host the image. In this case it looks like pretty much all of the content in <code>main</code> is on the image...so lets attach it there. We need an image that is the right size and shape. We will talk about working with images more later, but for now you can use <a href="../images/sunny-winter.jpg" alt="image of a sunny winter scene">this image</a>. Download the image to your web directory and then add css similar to this to your <code>main</code> rule (make sure to correct the path based on where you put the image):</p>
-                       <pre><code class="css">
-background-image: url("images/sunny-winter.jpg");
-background-size: cover;
-                        </code></pre>
-                        <p>Review the link above to understand what both of these properties are doing and what other options you have with using them.</p>
-                        
+                          <p>Time to finish up that middle section.  Items f, g, and h. You should know enough to be able to make those changes on your own. I'll give you a bit of help however...a list of the properties you may need to work with: <a href="https://www.w3schools.com/cssref/pr_padding.asp" target="_blank">padding</a>, <a href="https://www.w3schools.com/cssref/pr_margin.asp" target="_blank">margin</a>, <a href="https://www.w3schools.com/cssref/pr_border.asp" target="_blank">border</a>, <a href="https://www.w3schools.com/cssref/css3_pr_border-radius.asp" target="_blank">border-radius</a>, <a href="https://www.w3schools.com/cssref/css3_pr_order.asp" target="_blank">order</a>, <a href="" target="https://www.w3schools.com/cssref/pr_background-image.asp">background-image</a>, <a href="https://www.w3schools.com/cssref/css3_pr_background-size.asp" target="_blank">background-size</a>, and <a href="https://www.w3schools.com/cssref/pr_dim_width.asp" target="_blank">width</a>.  Make sure to keep the <a href="../images/planning/wireframe-lg.png" target="_blank">large</a> wireframe handy so you know what you are shooting for.</p>
+                          
+                                                  
                       </li>
                       
                        <li>
-                        <p>The styleguide show a very specific styling for the content boxes on the page.  It included this image:</p>
-                        <img src="../images/planning/rounded-example.jpg" alt="ui example">
-                        <p>It also included the styles you will need to make something look like that: </p>
-                    <pre><code class="css">
-background-color: rgba(200,200,200,.6);
-margin: .2em auto;
-border: 1px solid;
-border-radius: 5px;
-                    </code></pre>
-                      <div class="callout">
-                          <p>Lets look at each of those lines.</p>
-                          <p>The first we have used before, <code>background-color</code>, you may not have seen that way of specifying color however.  RGB functions similarly to hexidecimal, except that the values range from 0-250.  (250,250,250) would be white. Interesting thing about colors, whether hex or rgb...if you have the same value for all 3 parts...you get grey.  High numbers give a light grey, low numbers give a dark grey. </p>
-                          <p>You may have also noticed that this is a rgb<em>a</em> value.  The <em>a</em> stands for <em>alpha</em>...it's another way to say transparency.  The ".6" value there means make this color 60% visible.</p>
-                          <p>Next line is to give a bit of separation between content boxes that follow each other. the <code>auto</code> for the second value also works to center the element horizontally.</p>
-                          <p>The next 2 lines place a border around the element, and makes the corners rounded.</p>
-                      </div>
-                      <p>Using the CSS above apply the styles to the location, temperature box, and current conditions box. You may need to add some classes to do this.</p>
+                        <p>Almost there!  Only 2 items left.  Lets style that Hourly forecast list. There are a few problems here.  First we have bullets...they aren't working here...we should remove them. Second the list of hourly items is quite long...and it is stretching out the page.  The other 2 content boxes would look better if they were shorter.  Finally the time and temp are pretty squished...we should spread them out.</p>
+                        <p>Removing bullets is actually really easy.  That is controlled by the <a href="https://www.w3schools.com/cssref/pr_list-style-type.asp" target="_blank">list-style-type</a> property.  We just need to set that to "none" for this list.</p>
+                        <p> For the height we can just set a limit on that using <a href="https://www.w3schools.com/cssref/pr_dim_max-height.asp" target="_blank">max-height</a>. This will cause a problem though.  You will notice after you apply that (I recommend something like <code>max-height: 12em;</code>) that the grey containing box shrunk, but now the temperatures are spilling out the end! This is because of the <a href="https://www.w3schools.com/cssref/pr_pos_overflow.asp" target="_blank">overflow</a> property.  If you follow that link you will see that the default behavior when content overflows a container is "show".  We can set that to "hide"  if we don't want to see anythign outside the box, or "auto" if we want a scrollbar to show up when the content is too big.  Lets use that.</p>
+                        <p>Finally lets spread out those values. This is an alignment issue...we know that flexbox has really good alignment controls...so lets fix this with flexbox.  You may need to do a little work on your list for this to work.  This is how my html looks:</p>
+                        <pre><code class="html">
+&lt;section class="hourly hide-small"&gt;
+    &lt;h2&gt;Hourly Forecast&lt;/h2&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;span&gt;6:00am&lt;/span&gt; &lt;span&gt;69&lt;/span&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;span&gt;7:00am&lt;/span&gt; &lt;span&gt;72&lt;/span&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;span&gt;8:00am&lt;/span&gt; &lt;span&gt;74&lt;/span&gt;&lt;/li&gt;
+        ...
+    &lt;/ul&gt;
+&lt;/section&gt;
+                        </code></pre>
+                        <p>I wrapped my times and temps in <code>span</code>s to turn them into elements that I can work with for flexbox.   Once that is done then it is a simple matter of turning on flex for each list item, and using <code>justify-content: space-around;</code></p>
+                        <p>My styles for the hourly list ended up looking like this:</p>
+                        <pre><code class="css">
+.hourly > ul {
+        list-style-type: none;
+        padding-left: 0;
+        max-height: 12em;
+        overflow: auto;
+}
+.hourly ul li {
+    display: flex;
+    justify-content: space-around;
+}
+                        </code></pre>
+                        
                        
                     </li>
                     <li>
-                        <p>Lets skip to item k.  Rotating an element is done with the <a href="https://www.w3schools.com/cssref/css3_pr_transform.asp" target="_blank">transform</a> property. Spend some time on that page to get an idea of what you can do with transforms. For now we will focus on <code>rotate</code>.  Try applying the following css to one of the dice icons. </p>
+                        <p>If you stretch your browser window out wide you will notice that our page layout starts looking...not so great.  It gets very stretched out.  There are two ways to fix this.  first would be to add another media query breakpoint, and change the layout again so that it works on very wide screens.  The other is to limit how wide the content area of our page can get.  the first would be a great exercise...but lets do the second :) Add the following code to your media query:</p>
                         <pre><code class="css">
-.rotate25 {
-    transform: rotate(25deg);
-    display: inline-block;
+body {
+    width: 80%;
+    max-width: 800px;
+    margin: auto;
 }
                         </code></pre>
-                        <p>I think 25deg is quite jaunty! If you disagree then feel free to change the angle of rotation until you find something you like.</p>
+                        <p>The first line should be self explanatory...we are setting the width of the <code>body</code> to 80%, the second uses the <code>max-width</code> property to say "don't get any bigger than 800px", and the third line performs the magic of centering that block.</p>
                     </li>
                     <li>
-                        <p>At this point we are quite close to having the small version of our site complete. Items i and j in the list I will leave to you.  Add padding and margins where appropriate, and if there is any text that is difficult to read change it.</p>
-                    </li>
-                    <li>
-                        <p>Now we come to the last item...make our page responsive.  I mentioned above that it really deserved it's own list.  Lets go make that list in the next activity: <a href="franklin-responsive.html">Franklin: responsive.</a> </p>
+                        <p>At this point we are quite close to having the repsonsive version of our site complete. Adjust any other spacing or font size that you think necessary to get the page to look right for both large and small screens.  Make sure you test for both so that if anything you did while working on the large screen broke something for the small screen you can catch it.</p>
                     </li>
                     <li>Validate your page.  Make sure to check both the HTML <strong>and</strong> CSS now.  The easiest way to do this would be to use the Developer tools you installed in the first week. Fix <strong>all</strong> errors.</li>
                     <li>Make sure the link on your temporary homepage to this page is still working properly.  Then make sure to commit and sync your work in Github Desktop.  Check your URL (should look like githubusername.github.io) to make sure all of your changes show, and to check that your images all work.</li>
                 </ol>
 				 <h2>Grading Matrix</h2>
-        <p>This assessment will be graded for two objectives: 2 and 6.</p>
+        <p>This assessment will be graded for two objectives: 2 and 3.</p>
         
         <h3>Objective 2 - 15 points</h3>
         <ul>
