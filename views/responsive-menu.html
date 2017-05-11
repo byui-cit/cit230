@@ -1,0 +1,76 @@
+<!doctype html>
+
+<html lang="en-us"><head>
+	<meta charset="UTF-8">
+	<title>Responsive Menu Fix | Web Frontend Development</title>
+	<meta name="description" content="Site plan for the weather site for CIT 230">
+	<meta name="viewport" content="width=device-width">
+	<link rel="stylesheet" href="../css/solarized-light.css" />	
+	<link rel="stylesheet" href="../css/course.min.css">
+</head>
+
+<body class="faq">
+	<div id="main">
+		<header id="header">
+			<img src="../images/smallbanner.jpg" alt="CIT 230 Course Banner">
+		</header>
+		<main>
+			<article id="article">
+				<h1>Responsive Navigation Bar "Fix"</h1>
+				<hr class="rulestyle">
+                <h2>Overview</h2>
+                <p>Imagine that you are a teacher, and you need a good example of a responsive navigation bar to show your students.  All semester long you have been stressing several 'best practices':</p>
+                <ol>
+                    <li>Mobile first design,</li>
+                    <li>Flexbox for layout,</li>
+                    <li>and semantics.</li>
+                </ol>
+                <p>You find the following example of <a href="https://www.w3schools.com/css/tryit.asp?filename=trycss_navbar_horizontal_responsive" target="_blank">responsive horizontal navbar</a> and you like the simplicity of the solution, but notice it breaks all 3 of the points above. Sigh...it was such a nice example too...but maybe it could be fixed you think! Yes, you think it can.</p>
+                <h2>Tasks</h2>
+                <ol>
+                    <li>With your learning group, carefully review this <a href="https://www.w3schools.com/css/tryit.asp?filename=trycss_navbar_horizontal_responsive" target="_blank">responsive horizontal navbar</a> example. Notice how it responds to screen size changes. Seek for understanding of the html and css used to create the menu.</li>
+                    <li>Now create a file in your editor and copy/paste the example into it.  'Fix' the example by addressing the three points above. Your example should be mobile first, use only flexbox for layout, and use semantic elements more appropriately.</li>
+                    <li><p>Tips</p>
+                    <ul>
+                        <li>Begin by shrinking your screen (or turn on the mobile view in the developer tools in your browser), removing all the floats, and thinking about what steps need to happen to rebuild the menu with flexbox.</li>
+                        <li>One of the challenges is the fact that the menu is split...some options on the left, and some on the right.  It might be helpful to think of them as a left menu and right menu...the right menu is just really short :)</li>
+                        <li>Make any changes to the HTML first that you think you will need, and then start with the CSS. There is not really a footer on this page...but don't forget your <code>header</code>, <code>nav</code>, and <code>main</code>!</li>
+                        <li>Remember that if you are working mobile first you will usually want to watch <code>min-width</code>, <strong>not</strong> <code>max-width</code></li>
+                        
+                    </ul>
+                    </li>
+                    
+                    <li>Validate your page.  Fix <strong>all</strong> errors.</li>
+                    <li>Make sure to add a link to your temporary homepage to this new page.  Then make sure to commit <strong>and</strong> sync your work in Github Desktop.  Check your URL (should look like githubusername.github.io) to make sure all of your changes show, and to check that your images all work.</li>
+                </ol>
+				 <h2>Grading Matrix</h2>
+        <p>This assessment will be graded for two objectives: 1 and 2.</p>
+        <h3>Objective 1 - 12 points</h3>
+        <ol>
+          <li>The page is valid HTML5 - 3 points</li>
+          <li>The page has a descriptive title - 3 points</li>
+          <li>The page makes good use of semantic elements (should have a header, main, and nav) - 3 points</li>
+          <li>There is a working link back to the Temporary home page - 3 points</li>
+          
+        </ol>
+        
+        <h3>Objective 2 - 12 points</h3>
+        <ol>
+					<li>Layout of the navbar is done with Flexbox  - 3 points</li>
+					<li>Responsiveness: navbar responds well to screen size changes, adapting as the original did - 3 points</li>
+					<li>CSS shows a mobile first philosophy (styles outside the media query are for the mobile size, adaptations in the media query are for the large screen size) - 3 points </li>
+					<li>The page is valid CSS3 - 3 points</li>
+										
+				</ol>
+			</article>
+		</main>
+		<footer id="footer">
+			<a rel="license" href="//creativecommons.org/licenses/by-sa/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-sa/3.0/88x31.png"></a> All materials (except as noted) are by Shane Thompson and licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative Commons Attribution-ShareAlike 3.0 License</a>.</footer>
+	</div>
+	<script src="../js/course.min.js"></script>
+	<script src="../js/highlight.pack.js"></script>
+    <script>
+        // <![CDATA[
+        hljs.initHighlightingOnLoad();
+        // ]]>
+    </script></body></html>
