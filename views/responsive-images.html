@@ -1,0 +1,158 @@
+<!doctype html>
+
+<html lang="en-us"><head>
+	<meta charset="UTF-8">
+	<title>Responsive Images | Web Frontend Development</title>
+	<meta name="description" content="Site plan for the weather site for CIT 230">
+	<meta name="viewport" content="width=device-width">
+	<link rel="stylesheet" href="../css/solarized-light.css" />	
+	<link rel="stylesheet" href="../css/course.min.css">
+</head>
+
+<body class="faq">
+	<div id="main">
+		<header id="header">
+			<img src="../images/smallbanner.jpg" alt="CIT 230 Course Banner">
+		</header>
+		<main>
+			<article id="article">
+				<h1>Responsive Images</h1>
+				<hr class="rulestyle">
+                <h2>Overview</h2>
+                <hr>
+                <div class="callout">
+                    
+                   
+    
+    <p>In the old days and, "Yes" still today, many website deliver a single content image to a web page on any device. While it is not bad, it could be better. The problem is that if your image is low resolution, it could look fine on a small screen and terrible on a large screen. If it is high resolution then it is great on high dpi (dots per inch) retina or other large screens, but is slow and eats up a huge amount of bandwidth when downloaded to a mobile device. In either of these scenarios, the user experience is less than ideal.</p>
+    <h3>Enter Responsive Images</h3>
+    <p>Responsive images are not images that respond to different user environments, rather it is a combination of html and css that delivers different images to the client browser based on their environment. In some instances, the browser makes the call (srcset with sizes) and in other cases the markup tells the browser which image to deliver (picture element). In either case, the client should have a better experience because of our fore-thought and planning.</p>
+    <h3>What is an Optimized Image?</h3>
+    <p>A simple question. Not so simple of an answer. An optimized image is one that 1) has a good pixel count for the screen it will be displayed on while 2) also trying to match the space it will get in the browser window and 3) remain as light-weight as possible to not gobble up bandwidth during the download. Let's see if we can illustrate all three:</p>
+    <h3>Pixel Count</h3>
+    <p>Image "A" is 400 pixels wide and 300 pixels tall. When "A" is displayed on a regular 92dpi monitor, it will display at around 4" wide by 3" high. When "A" is displayed on a retina 336dpi monitor, it will be just over 1" wide by .75" tall. Or, if forced to display at 4" by 3" the image will become grainy or "pixelated" and not look very pleasing.</p>
+    <h3>Display Space</h3>
+    <p>Image "B" is 2000 pixels wide and 1500 pixels high. Image "B" is going to be a content image to sit in a two column layout. The layout will never get larger than 1200 pixels wide. While the 2000 pixels of "B" will look great on a high resolution monitor, it will never actually be displayed larger than 600 pixels (1200 pixel maximum layout / 2 columns = 600 pixels per column). That means many of image "B"'s pixels are wasted.</p>
+    <h3>Light Weight</h3>
+    <p>Image "A" is a jpeg image with a quality setting of 80% (this means its quality has been reduced) in order to make it weigh in at 50Kb. Image "B" is also a jpeg with the same quality setting, but weighs in at 600kb. Image A is light-weight, but looks suspect on high resolution and large screens. Image "B" looks wonderful, but eats up a large amount of bandwidth while being delivered to the browser.</p>
+    <h3>What's the Answer?</h3>
+    <p>Simply put, we use different images (different versions of the same or different image(s)), and deliver the image to the browser that provides the best experience while trying to balance all three concerns mentioned above.</p>
+    <h3>Art Direction</h3>
+    <p>Art direction is a term used to ask, "What is the focus of the image?". If a bride and groom are in a flower garden, the focus or "Art Direction" is the bride and groom. If the image is going to be large, we could afford to include some of the surrounding flowers and landscape. But if the image has to be small (say for a mobile sized screen) then we crop out the background and focus on the people. Maybe even cropping the image to show them only from the waist up.</p>
+                </div>
+                <h2>Tasks</h2>
+                <ol>
+                    <li><p>Let's start with a scenario. We have 2 images that need to be prepared for a site. The first image will look the same for all viewport sizes, but we need to make sure that an optimal image is loaded at each size.</p>
+                    <p>The second image will be part of a media object. It is an image followed by a headline and descriptive paragraph. We need to match pisel count again...but also need some art direction...the image will change based on the viewport size.</p>
+                        <p>Download the <a href="" >starter images</a> and open them in an image editor like Pixlr (either the <a href="https://pixlr.com/editor/" target="_blank">online editor</a> or the Brackets extention).</p></li>
+                    <li><p>In order to prepare these images we need a few more details</p>
+                    <div class="callout">
+                        <h3>Details</h3>
+                        
+                    <ul>
+                        <li>Image 1 should be displayed at 100% of the viewport width at sizes below 400px and at 50% of the viewport width above 400px</li>
+                        <li>Image 2 should be a square crop focusing on the left shore and river at viewport widths &lt; 500px, a banner cropped from the middle of the image between 500px and 830px, and the image cropped to portrait (it's currently landscape...keep the left side) above 830px.</li>
+                        <li>The small and medium versions of Image 2 will be displayed at 100% width.  The large should be displayed at 35% of the viewport width.</li>
+                        <li>Additionally 3 sizes of Image 2 should be prepared for each different version to accomodate different screen pixel densities.</li>
+                        <li>We will cap the width of the page at 1600px max to keep things a little simpler.</li>
+                        
+                        
+                    </ul>
+                </div>
+                    </li>
+                    
+                    <li><p>So Image 1 needs to be shown at 100% viewport width on small screens ( &lt; 400px) and 50% above 400px.  So what sizes of that image should we prepare?  Let's take a look at a few different scenarios.</p>
+                    <ul>
+                        <li>Screen size 400px or less (most phones bottom out at 360px), device-pixel ratio 1x: this is an easy one.  We would need an image that was 400px wide :)</li>
+                        <li>Screen size between 400px and 800px, device-pixel ratio 1x: again pretty easy.  Remember that the image will be displayed at 50% at this size...so still 400px!</li>
+                        <li>Screen size &gt; 800px, device-pixel ratio 1x: for this we will need a larger image...monitors top out at 5k resolution now...which means that 50% = up to 2500px! but we mentioned above that we would have a max-width = 1600px so the biggest image we will need is 1600 * 50% = 800px...for 1x screens.</li>
+                        <li>Screen size 400px, device-pixel ratio 2x: for a double density screen at this size we would actually need an image 800px wide to look really sharp! the same applies to between 400px and 800px. </li>
+                        <li>Screen size &gt; 800px, device-pixel ratio 2x: for this we would actually need an image size of 1600px!</li>
+                    </ul>
+                    <p class="callout">If you don't remember what "device-pixel ratio" means review this <a href="https://www.sitepoint.com/how-to-build-responsive-images-with-srcset/" target="_blank">article</a>. </p>
+                    <p>So looking over the list above I count at least 3 image sizes: 400px, 800px, 1600px.  You could do more if you wanted...but this should give us pretty good coverage. Lets create those now in an image editor. there is no cropping required on this image...so you just need to adjust the image size and save as...make sure to use our file naming rules...the names can be almost the same for each version...but you should indicate the size of the image in the name as well.</p>
+                    <div class="callout"><p>Here is a video walking through editing size and cropping with Pixlr if you need it.</p>
+                       <iframe width="560" height="315" src="https://www.youtube.com/embed/hPPG6RYwBCk?rel=0" allowfullscreen=""></iframe>
+                        </div>
+                    </li>
+
+                    <li><p>Image 2 is a bit more complex.  We need to do 3 crops...and then possibly different sized images for pixel densities. Begin by cropping the image according to the details above. Square and banner. Leave it full size for now.</p>
+                    <p>Now we need to decide what sizes of the different crops we need:</p>
+                    <ul>
+                        <li>Screen size 400px or less, device-pixel ratio 1x: Square crop...400px</li>
+                        <li>Screen size 400px or less, device-pixel ratio 1.5x: Square crop...600px</li>
+                        <li>Screen size 400px or less, device-pixel ratio 2x: Square crop...800px</li>
+                        <li>Screen size between 500px and 830px, device-pixel ratio 1x: Banner crop 830px</li>
+                        <li>Screen size between 500px and 830px, device-pixel ratio 1.5x: Banner crop 1245px</li>
+                        <li>Screen size between 500px and 830px, device-pixel ratio 2x: Banner crop 1660px</li>
+                        <li>Screen size &gt; 830px, device-pixel ratio 1x: Portrait image 1600px * 35% = 560px</li>
+                        <li>Screen size &gt; 830px, device-pixel ratio 1.5x: Portrait image 830px * 35% * 1.5 = 840px</li>
+                        <li>Screen size &gt; 830px, device-pixel ratio 2x: Portrait image 830px * 35% * 2 = 1120px</li>
+                    </ul>
+                    <p>That's a lot of images! For a production site you would probably want that kind of coverage...for this exercise we will just worry about 1x and 2x.  So go ahead and produce the two sizes of each crop now. (6 images total)</p></li>
+                    
+                    <li>Now we need to get the right image to load at the right time, and at the right size based on viewport size. The .zip you downloaded earlier with the images also had an .html file in it. Copy that into your sandbox folder.  Make sure your images (should be 9...3 for image 1 and 6 for image 2) are also in the sandbox folder...in an images folder preferably. Open the .html file in your editor.</li>
+                    <li>
+                        <p>Note the <code>figure</code> that holds image 1.  The next task is to add the correct attributes to get the correct version of image 1 to load at the correct size.  We can do this with the <code>srcset</code> and <code>sizes</code> attributes. </p>
+                        <div class="callout">
+                        <p>From the readings this week you should have learned that we can use <code>srcset</code> in two ways.  If our image will always be the same size on the screen, but we need different pixel sizes of the image to be loaded based on device-pixel ratio then we can use the <code>1x</code> descriptors to indicate which image to load for which screen. Here is an example:</p>
+                        <pre><code class="html">
+srcset="images/little-colorado@1x.jpg 1x, images/little-colorado@2x.jpg 2x)
+                        </code></pre> 
+                        <p>This is not the case for image 1 however.  It changes size based on the viewport width.  In this case we should use the <code>w</code> (width) descriptor instead...like this:</p>
+                        <pre><code class="html">
+srcset="images/little-colorado-400.jpg 400w, images/little-colorado-800.jpg 800w, images/little-colorado-1600.jpg 1600w)
+                        </code></pre> 
+                        <p>The advantage of using the width descriptor is that it puts most of the work for determining which image to load on the browser...it knows what the current viewport width is and what the current device-pixel ratio is...and it's really good at math :).  With a <code>srcset</code> like the one above it has all the information it needs to select the best image for any conditions.</p>
+                        </div>
+                        <p>Add the appropriate <code>srcset</code> to the image 1 <code>img</code> tag.  You should also change the value on the <code>src</code> to whichever image you want to load if the srcset does not work (the browser doesn't support it for example)</p>
+                        <p>Next add a <code>sizes</code> attribute to have the image show at 100vw if the screen is &lt; 400px and show at 100vw otherwise.</p>
+                    </li>
+                    <li>
+                        <p>Finally we get to image 2.  Not only do we want image 2 to adjust for screen width and pixel ratio, but we have some art-direction going on as well...we want the image focus to change at different widths.  For this we will need the <code>&lt;picture&gt;</code> element. Review the element in the .html file.  Notice that it already has an <code>img</code> tag in it.  This is for compatibility.  If the picture element is viewed in a browser that does not support it...the <code>img</code> will display.</p>
+                        <div class="callout">
+                            <p>The <code>picture</code> element allows for the addition of image <code>source</code>s.  Each each source in our case can be a different version of the image. <code>source</code> also supports <code>srcset</code> and <code>sizes</code>. And example using our images might look like this: </p>
+                            <pre><code class="html">
+&lt;source  sizes="35vw" srcset="images/little-colorado-portrait-1120.jpeg 1120w, images/little-colorado-portrait-560.jpeg 560w, images/little-colorado-portrait-360.jpeg 360w"  &gt;
+                            </code></pre>
+                            <p>Notice the <code>sizes</code> attribute.  This says "show this image at 35% of the viewport width". Then in the <code>srcset</code> I list 3 versions of the image.  The browser will decide which to use. the last thing we need would be a condition when this <code>source</code> should be used. That is added with the <code>media</code> attribute. This attribute lets us add a media query directly to this element.</p>
+                            <pre><code class="html">
+&lt;source  media="(min-width:830px)" sizes="35vw" srcset="images/little-colorado-portrait-1120.jpeg 1120w, images/little-colorado-portrait-560.jpeg 560w, images/little-colorado-portrait-360.jpeg 360w"  &gt;
+                            </code></pre>
+                        </div>
+                        <p>Add a <code>source</code> element for each of the three versions of our picture.  They should all follow the pattern of the example above.  Make sure to change the <code>src</code> in the <code>img</code> tag to whichever image you would like to be the default...if the <code>picture</code> doesn't work.</p>
+                    </li>
+                    <li>Check your page.  Change the width of the browser first to make sure that you see the correct image at each breakpoint.  Then open the developer tools and goto the Sources tab.  Set your browser to different widths and hit refresh.  You should see your different sized images loading.</li>
+                    
+                    <li>Make sure to add a link to your temporary homepage to this new page.  Then make sure to commit <strong>and</strong> sync your work in Github Desktop.  Check your URL (should look like githubusername.github.io) to make sure all of your changes show.</li>
+                </ol>
+				 <h2>Grading Matrix</h2>
+        <p>This assessment will be graded for two objectives: 1 and 2.</p>
+        <h3>Objective 1 - 10 points</h3>
+        <ul>
+          <li>The page is valid HTML5 - 3 points</li>
+          <li>srcset and sizes are used to control which version of an image is loaded based on viewport width - 4 points</li>
+          <li>The picture element is used to control art direction for an image. - 3 points</li>
+          
+          
+        </ul>
+        
+        <h3>Objective 2 - 5 points</h3>
+        <ul>
+                <li>Responsiveness: images respond to device-pixel ratio and size changes - 5 points</li>
+                
+               
+										
+				</ul>
+			</article>
+		</main>
+		<footer id="footer">
+			<a rel="license" href="//creativecommons.org/licenses/by-sa/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-sa/3.0/88x31.png"></a> All materials (except as noted) are by Shane Thompson and licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative Commons Attribution-ShareAlike 3.0 License</a>.</footer>
+	</div>
+	<script src="../js/course.min.js"></script>
+	<script src="../js/highlight.pack.js"></script>
+    <script>
+        // <![CDATA[
+        hljs.initHighlightingOnLoad();
+        // ]]>
+    </script></body></html>
