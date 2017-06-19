@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+ <meta charset="UTF-8">
+ <meta http-equiv="x-ua-compatible" content="ie=edge">
+ <title>Choose your own adventure | Web Frontend Development</title>
+ <meta name="description" content="Mobile browsing activity for CIT 230">
+ <meta name="viewport" content="width=device-width">
+ <link rel="stylesheet" href="../css/course.min.css">
+</head>
+
+<body>
+ <div id="main">
+  <header id="header">
+   <img src="../images/smallbanner.jpg" alt="CIT 230 Course Banner">
+  </header>
+  <main>
+   <article id="article">
+    <h1>Choose your Own Adventure Activity</h1>
+
+    <h2>Overview</h2>
+    <p>When I was younger Choose Your Own Adventure books were very popular. The story would be laid out in branching paths...some led to success, others to failure (usually a gruesome death).  But they were always entertaining.  This activity will have you build a simple engine that could be used to create your own adventure story.</p>
+
+   <h2>Tasks</h2>
+    <p>Begin by grabbing the starter code below</p>
+    <p data-height="300" data-theme-id="25722" data-slug-hash="yXMEoE" data-default-tab="result" data-user="matkat" data-embed-version="2" data-pen-title="yXMEoE" class="codepen">See the Pen <a href="https://codepen.io/matkat/pen/yXMEoE/">yXMEoE</a> by Shane T (<a href="https://codepen.io/matkat">@matkat</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
+    <p>You can either create a new html and JS file in your sandbox, or open that in Codepen and fork it. This option would require a free Codepen account.</p>
+
+    <p>Spend a few minutes looking over the code. You have been given a JSON object that contains the structure of our story.  There is also a function to pull data out of the instructions variable and update the HMTL with what is found there.</p>
+    <p>Notice also that it mentions 2 additional functions that do not exist. <code>getItem</code> and <code>updateElement</code>. Your first task is to write those two functions. Then create another function to initialize the game and load the first instruction into the HTML and have that function called when the page loads.</p>
+    
+    
+
+    <p>The second part of this activity will be to finish the game.  We need some way to know if we have reached an endpoint...either good or bad.  Modify the JSON to include this information, then add a condition that checks each time we load a new step whether we have reached an endpoint or not.</p>
+    <p>If we have reached an endpoint it should then determine if we won or lost...and let us know.</p>
+    <p>Finally we should add a button that will reset the story.</p>
+    
+    <p>Work together with your learning groups to finish this task. Include the names of those you worked with in a comment in your code.</p>
+    <h2>Grading</h2>
+    <h3>Objective 5: Javascript</h3>
+    <ul>
+        <li>getItem function created that will pull a specified instruction from the list. (3pts)</li>
+        <li>updateElement function created that will update a specified element in the DOM (3pts)</li>
+        <li>Logic added to determine when the story ends. (4pts)</li>
+    </ul>
+    <h3>Objective 6: Content</h3>
+    <ul>
+        <li>The names of the students you collaborated with are listed in a comment in the JS. (5pts)</li>
+        
+    </ul>
+
+   </article>
+  </main>
+  <footer id="footer">
+   <a rel="license" href="//creativecommons.org/licenses/by-sa/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a> All materials (except as noted) are by <a href="//blainerobertson.net">Blaine Robertson</a> and licensed under a <a rel="license" href="//creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative Commons Attribution-ShareAlike 3.0 License</a>.</footer>
+ </div>
+ <script src="../js/course.min.js"></script>
+</body>
+
+</html>
