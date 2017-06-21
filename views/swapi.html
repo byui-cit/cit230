@@ -4,7 +4,7 @@
 <head>
  <meta charset="UTF-8">
  <meta http-equiv="x-ua-compatible" content="ie=edge">
- <title>SWAPI Activity | Web Frontend Development</title>
+ <title>Making a Request Activity | Web Frontend Development</title>
  <meta name="description" content="Mobile browsing activity for CIT 230">
  <meta name="viewport" content="width=device-width">
  <link rel="stylesheet" href="../css/solarized-light.css" />	
@@ -18,7 +18,7 @@
   </header>
   <main>
    <article id="article">
-    <h1>SWAPI Activity</h1>
+    <h1>Making a Request Activity</h1>
 
     <h2>Overview</h2>
     <p>API's (Application Programming Interface) seem to be everywhere now.  They allow two different programs to communicate with each other and can be very useful.  Some API's require a login to access, but many others are open and can be accessed by anyone. For this activity we will be using an open API that provides access to a database of information about the Star Wars movies.</p>
@@ -79,20 +79,37 @@ function fetchShips() {
         <p>One thing to note...I got to choose the name <code>data</code> above.  The variable name there could really be anything you want...<code>stuff</code>, <code>ships</code>, or even <code>listOfShipsReturnedFromTheStarWarsAPI</code> if you wanted to be <em>very</em> specific!</p>
        </div>
     
-    <p>Part II: <a href="https://www.sitepoint.com/premium/books/javascript-novice-to-ninja/online/ch06s08.html" target="_blank">adding elements</a> 
-    <a href="https://www.sitepoint.com/premium/books/javascript-novice-to-ninja/online/ch07.html" target="_blank">Events</a> </p>
-
-    
+        <h2>Tips</h2>
+    <ul>
+        <li>Part I
+        <ol>
+            <li>Notice that the example <code>fetchShips</code> function code above simply outputs the returned results to the console.  Don't underestimate the power of that simple task.  It lets you see if what you are doing works, and lets you see the structure of the returned data.</li>
+            <li>Remember that you need to <em>use</em> a function after declaring it for it to do anything.</li>
+            <li>the API will return a JSON object back...you will need to familiarize yourself with the structure of that object to complete the assignment.</li>
+            <li>When you are ready to create the elements for your ships, this section on <a href="https://www.sitepoint.com/premium/books/javascript-novice-to-ninja/online/ch06s08.html" target="_blank">adding elements</a> from your reading should help.</li>
+            
+        </ol></li>
+        <li>Part II
+        <ol>
+           <li>To start this task you will need to grab all of the new list items we created and added in the last section.  Review this section from your reading on <a href="https://www.sitepoint.com/premium/books/javascript-novice-to-ninja/online/ch06s03.html#query-selectors" target="_blank">query selectors</a> for help doing that. </li>
+           <li>Remember that <code>document.querySelectorAll()</code> returns a <em>list</em> of nodes. You may want to review <a href="https://www.sitepoint.com/premium/books/javascript-novice-to-ninja/online/ch03s04.html#looping-over-arrays" target="_blank">looping over arrays</a> again, or if you are feeling adventurous you might try a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach?v=control" target="_blank">foreach</a> loop</li>
+            <li>You should also review this section (also from the reading this week) on <a href="https://www.sitepoint.com/premium/books/javascript-novice-to-ninja/online/ch07s04.html#mouse-events" target="_blank">mouse events</a>. </li>
+        </ol></li>
+        <li>Part III
+        <ol>
+            <li>This part really just has you reapply what you learned to accomplish the first two parts.  </li>
+        </ol></li>
+    </ul>
     
     <p>Work together with your learning groups to finish this task. Include the names of those you worked with in a comment in your code.</p>
     <h2>Grading</h2>
     <h3>Objective 5: Javascript</h3>
     <ul>
-        <li>getItem function created that will pull a specified instruction from the list. (3pts)</li>
-        <li>updateElement function created that will update a specified element in the DOM (3pts)</li>
-        <li>Logic added to determine when the story ends. (4pts)</li>
+        <li>Data successfully pulled from the public API. (5pts)</li>
+        <li>Ships retrieved are added to the html and displayed (5pts)</li>
+        <li>Clicking on a ship will bring up details about that ship (5pts)</li>
     </ul>
-    <h3>Objective 6: Content</h3>
+    <h3>Objective 6</h3>
     <ul>
         <li>The names of the students you collaborated with are listed in a comment in the JS. (5pts)</li>
         
