@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+ <meta charset="UTF-8">
+ <meta http-equiv="x-ua-compatible" content="ie=edge">
+ <title>SWAPI Activity | Web Frontend Development</title>
+ <meta name="description" content="Mobile browsing activity for CIT 230">
+ <meta name="viewport" content="width=device-width">
+ <link rel="stylesheet" href="../css/solarized-light.css" />	
+ <link rel="stylesheet" href="../css/course.min.css">
+</head>
+
+<body>
+ <div id="main">
+  <header id="header">
+   <img src="../images/smallbanner.jpg" alt="CIT 230 Course Banner">
+  </header>
+  <main>
+   <article id="article">
+    <h1>SWAPI Activity</h1>
+
+    <h2>Overview</h2>
+    <p>API's (Application Programming Interface) seem to be everywhere now.  They allow two different programs to communicate with each other and can be very useful.  Some API's require a login to access, but many others are open and can be accessed by anyone. For this activity we will be using an open API that provides access to a database of information about the Star Wars movies.</p>
+
+   <h2>Tasks</h2>
+    <p>In this exercise we will do the following:</p>
+    <ul>
+        <li>Part I
+            <ol>
+        <li>Successfully pull data (JSON) from an external API (<a href="https://swapi.co/" target="_blank">the Star Wars API</a>)</li>
+        <li>For each result returned, create a link with the <code>href</code> set to the URL of the ship.</li>
+        <li>For each link create a list item to contain it.</li>
+        <li>Append each list item into an html element (an unordered list)</li>
+        
+    </ol>
+        </li>
+        <li>Part II 
+           <ol>
+            <li>Attach an event listener to watch for a click on each of our new ship list items</li>
+               <li>When clicked details for that ship should be retrieved from the API, inserted into the <code>detailsbox</code>, and the <code>detailsbox</code> shown.</li>
+               <li>Extra: try and show the names of the movies that the selected ship has been in.</li>
+        </ol></li>
+        <li>Part III
+        <ol>
+            <li>Get the prev and next URL's from the API data.  Add those URLS to the appropriate link.</li>
+            <li>Attach an event listener to each of those links.  When clicked the link's default behavior should be stopped...and instead the new list of ships should be retrieved and shown.</li>
+        </ol></li>
+    </ul>
+    <p>Create an html, css, and js file for this activity, link them together, and build out a basic HTML page with a bit of styling. Your HTML should have a headline of some sort telling us about the page, and 2 areas: one for the list of ships (right now it should just contain an empty <code>ul</code> element), and another that will be used to display the details for a selected ship. Add some classes/ids as needed to be able to select our areas with css or javascript.</p>
+    <div class="callout">
+    <p>You will need a bit of help with the code to actually make the HTTP request to retrieve the data from the API.  You can use the following function:</p>
+    <pre><code class="js">
+//helper function to fetch the data from an external source
+function getJSON(url) {
+    return fetch(url)
+        .then(function (response) {
+            return response.json();
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+}
+    </code></pre>
+<p>This function does not work quite like most of the others you may have written or used. One of the challenges of HTTP requests (AJAX for example) is that you don't have any control over how quickly or slowly the results are sent back...but you don't want the page to completely stop loading while you wait and so these requests are made asynchronously. This means that the javascript makes the request...then moves on without waiting.</p>
+       <p>This can cause problems however if some of the code needs the results of the request in order to work!  There are two ways that Javascript has handled this.  One is <a href="https://medium.freecodecamp.com/javascript-callbacks-explained-using-minions-da272f4d9bcd" target="_blank">Callbacks</a> and the other newer method is <a href="https://scotch.io/tutorials/javascript-promises-for-dummies" target="_blank">Promises</a>. The function I have provided uses Promises.  The first thing you need to know when using promises is: <code>then</code></p>
+    <pre><code class="js">
+//lets get some ships
+function fetchShips() {
+    var url = "//swapi.co/api/starships/";
+    //call getJSON function to get the list of ships from the api
+    getJSON(url).then(function (data) {
+        //stuff that should happen after the request is done.
+        console.log(data);
+    });
+}
+    </code></pre>
+      <p>If you were to read that over it would go like this: "Run the getJSON function with the provided url...when the results are returned <strong>then</strong> do this other stuff with the results that can be found in the <code>data</code> variable..."</p>
+        <p>One thing to note...I got to choose the name <code>data</code> above.  The variable name there could really be anything you want...<code>stuff</code>, <code>ships</code>, or even <code>listOfShipsReturnedFromTheStarWarsAPI</code> if you wanted to be <em>very</em> specific!</p>
+       </div>
+    
+
+    
+    
+    <p>Work together with your learning groups to finish this task. Include the names of those you worked with in a comment in your code.</p>
+    <h2>Grading</h2>
+    <h3>Objective 5: Javascript</h3>
+    <ul>
+        <li>getItem function created that will pull a specified instruction from the list. (3pts)</li>
+        <li>updateElement function created that will update a specified element in the DOM (3pts)</li>
+        <li>Logic added to determine when the story ends. (4pts)</li>
+    </ul>
+    <h3>Objective 6: Content</h3>
+    <ul>
+        <li>The names of the students you collaborated with are listed in a comment in the JS. (5pts)</li>
+        
+    </ul>
+
+   </article>
+  </main>
+  <footer id="footer">
+   <a rel="license" href="//creativecommons.org/licenses/by-sa/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a> All materials (except as noted) are by <a href="//blainerobertson.net">Blaine Robertson</a> and licensed under a <a rel="license" href="//creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative Commons Attribution-ShareAlike 3.0 License</a>.</footer>
+ </div>
+ <script src="../js/course.min.js"></script>
+ <script src="../js/highlight.pack.js"></script>
+    <script>
+        // <![CDATA[
+        hljs.initHighlightingOnLoad();
+        // ]]>
+    </script>
+</body>
+
+</html>
