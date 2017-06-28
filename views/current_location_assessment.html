@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+ <meta charset="UTF-8">
+ <meta http-equiv="x-ua-compatible" content="ie=edge">
+ <title>Current Location Assessment | Web Frontend Development</title>
+ <meta name="description" content="Mobile browsing activity for CIT 230">
+ <meta name="viewport" content="width=device-width">
+ <link rel="stylesheet" href="../css/solarized-light.css" />	
+ <link rel="stylesheet" href="../css/course.min.css">
+</head>
+
+<body>
+ <div id="main">
+  <header id="header">
+   <img src="../images/smallbanner.jpg" alt="CIT 230 Course Banner">
+  </header>
+  <main>
+      <article id="article">
+        <h1>Current Location Page</h1>
+        <hr>
+        <h2>Work With a Partner or Group</h2>
+        <p class="callout">You are required to work with a partner or group (maximum of 5) for this assessment. Each person is responsible for her or his own work, but you should collaborate to assist one another to complete the assessment.</p>
+        <h2>List Who You Worked With</h2>
+        <p>In the index page of the folder you will download below you will find a comment between the "head" and "body" elements for you to list who you worked with. List all names in the comment, with your name first. These should be members of our class!</p>
+        <h2>Be Aware!</h2>
+        <p>Unlike previous assessments, this one will require it to be done twice. Once using the seed code files provided below and again in the weather pages you began working with back in week 5.</p>
+        <h2>Get the Seed Code</h2>
+        <p>Below is a link for you to download seed code to use for this assessment.</p>
+        <p class="callout"><a href="../downloads/jsonweather-html.zip" target="_blank" title="opens in a new tab">jsonweather-html.zip</a></p>
+        <ol>
+          <li>Once downloaded, unzip the file and move the "jsonweather-html" folder to the root of your local web site.</li>
+          <li>Open the folder and become familiar with the files that are included.</li>
+        </ol>
+        <h2>Get The Data</h2>
+        <p>Most of the code for this assessment will be written in the remote_wu.js file. However, two other small pieces of code will need to be written. First, you will need to hook up the remote_wu.js file to the index page (see line 45 of the index page). Second, you may need to add custom CSS as explained in step 8.3 below!</p>
+        <ol>
+          <li>You will probably want to review the Weather Underground links provided in the <a href="wu_api.html" target="_blank" title="Open the weather underground API activity page">Weather Underground API activity</a> as they indicate <b>How</b> to request data and the <b>Type</b> of data that you will need.</li>
+          <li>Use the <code>getJSON()</code> method which begins on line 25 and currently ends on line 35.</li>
+          <li>Write all code within this method, add new lines within the method as need.</li>
+          <li>Send the URL to the weather underground API requesting both the geolocation and conditions objects. Use the method that allows you to send in the latitude and longitude for the current location. Don't forget to include your API key as required in the URL.
+            <ol>
+              <li>The latitude (lat) and longitude (long) were gotten for you on lines 10 and 11.</li>
+            </ol>
+          </li>
+          <li>Write a success function and store its parameter as "data".</li>
+          <li>Use console.log often to see what you are getting back from the API and your own variables.</li>
+          <li>Base Data:
+            <ol>
+              <li>You are to get the city and state and combine them into a single location name separated by a comma and space. The name is to be displayed in the h1 element with an id of cityDisplay <b>AND</b> as the first item in the "title" element within the "head" element of the page (do not replace what's there, add this in front of what's already there).</li>
+              <li>You are to get the current temperature and display it into the li with an id of currentTemp. Make sure you use JavaScript to round the number to the closest integer and display the degree symbol following the number.</li>
+              <li>Finally, you are to display a summary of the current conditions in the li with an id of summary. Be sure the text starts with a capital letter (Hint: use the weather property from the current_observation object).</li>
+            </ol>
+          </li>
+          <li>Additional Data:
+            <ol>
+              <li>You are to add a minimum of two additional data points to the weather page.
+                <ol>
+                  <li>Three list items are provided in the index page, each with an id of "add1", "add2" and "add3" for your use.</li>
+                  <li>Be sure that whatever you add makes sense from the site visitors perspective, don't make them guess what you meant - make it clear and obvious!</li>
+                  <li>You may alter the CSS within the user_styles.css file to style this content if needed (this file is already set to be used, you don't need to do anything with the main stylesheet).</li>
+                </ol>
+              </li>
+            </ol>
+          </li>
+        </ol>
+        <h2>Thoroughly Test</h2>
+        <p>Make sure you thoroughly test the page on your local system to insure that all data works and is clearly visible as you intend it to be on all screen sizes. Test using the Chrome developer tools and device emulators.</p>
+        
+        <h2>Add the Collaboration List</h2>
+        <p>Add the names of the people that you collaborated with to the comment in the index page (between the head and body elements prior to uploading.</p>
+        <h2>Create a Link</h2>
+        <p>On your temporary home page, create a link to the seed code index page within the jsonweather-html folder.</p>
+        <p>Upload the altered temporary home page and the entire jsonweather-html folder.</p>
+        <h2>Remote Testing</h2>
+        <p>Thoroughly test the links and operation of your code on the production server.</p>
+        <p><strong>Note:</strong> As of version 50, the <a href="https://developers.google.com/web/updates/2016/04/geolocation-on-secure-contexts-only?hl=en" title="Click to read more about Google's decision" target="_blank">Chrome browser does not support the geoLocation javascript function</a> unless the domain is a secured domain using the https protocol! Most shared hosting sites do not use https. The easiest solution is to test your page using a different browser (FireFox or Safari) instead of using Chrome.</p>
+        <p>However, our GitHub repositories do use the https protocol so we should not have a problem.</p>
+        <h2>Do It Again!</h2>
+        <ol>
+          <li>Return to the weather pages that you built beginning in week 5 and create an index.html page for the weather site (<b>DO NOT REPLACE YOUR OWN SITE HOME PAGE</b>).</li>
+          <li>Make this index page act as a "current location page" just as you did with the seed code page.</li>
+          <li>Link and/or modify JavaScript and CSS files to the index page to allow it to function as needed.</li>
+          <li>Copy the collaboration list comment from the seed code index page to the weather site index page, in the same location between the head and body sections of the file.</li>
+          <li>Test locally to ensure that it works just as you did with the seed code page.</li>
+          <li>When done upload the new weather home page to your GitHub repository and create a link to it in your temporary home page.</li>
+        </ol>
+        
+        <h2>Grading Matrix</h2>
+        <h3>Objective 5 (30 points)</h3>
+        <p>Two links appear on the temporary home page: 1) to the seed code index page and 2) to the weather site index page. Both pages work to show the current location weather. - 5 points.</p>
+        <p>Using the weather site index page, the data is successfully returned and displayed in the web page using:</p>
+        <ul>
+          <li>The getJSON method found in an external JavaScript file. &nbsp;- 5 points</li>
+          <li>The three base data points are present:
+            <br> &nbsp; &nbsp; &nbsp;The location name is the city and state, separated with a comma and space - 3 points
+            <br> &nbsp; &nbsp; &nbsp;The location name appears in the content "h1" and as the first value in the "title" element - 2 points
+            <br> &nbsp; &nbsp; &nbsp;The temperature includes the degree symbol - 2 point </li>
+          <li>The summary value starts with a capital letter - 2 point</li>
+          <li>A minimum of two additional data points are included. - 6 points</li>
+          <li>The additional data points are clearly legible and communicate the information unambiguously. - 5 points</li>
+        </ul>
+        <h3>Objective 6 (5 points)</h3>
+        <p>The weather site index page comment lists the other class members that the developer collaborated with during the assessment.</p>
+      </article>
+    </main>
+  <footer id="footer">
+   <a rel="license" href="//creativecommons.org/licenses/by-sa/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a> All materials (except as noted) are by Shane Thompson and licensed under a <a rel="license" href="//creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative Commons Attribution-ShareAlike 3.0 License</a>.</footer>
+ </div>
+ <script src="../js/course.min.js"></script>
+ <script src="../js/highlight.pack.js"></script>
+    <script>
+        // <![CDATA[
+        hljs.initHighlightingOnLoad();
+        // ]]>
+    </script>
+</body>
+
+</html>
